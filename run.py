@@ -14,6 +14,17 @@ class User:
 
 
 
+# class crypt portfolio:
+
+# - display all crypto exchange rates in real time
+
+# - ask user how much and which crypto they want to invest in
+
+# - functions to exchange amount user wants exchanged to specific crypto
+
+# - displays all crypto with amount invested in each crypto currency
+
+
 def get_int(self):
         """
         Function that handles user input for different numbers. As long as
