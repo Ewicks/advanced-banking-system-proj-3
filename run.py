@@ -10,7 +10,10 @@ class User:
     def user_detials(self):
         f"Hello {self.fname} {self.lname} welcome to our advanced banking system"
 
-
+class Bank(User):  # Create a bank and will inherit from the user
+    # Bank has its own attributes of total deposits and total withdraws
+    total_deposits = 0
+    total_withdraws = 0
 
 
 
