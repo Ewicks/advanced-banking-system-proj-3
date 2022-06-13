@@ -15,6 +15,10 @@ class Bank(User):  # Create a bank and will inherit from the user
     total_deposits = 0
     total_withdraws = 0
 
+    def __init__(self, name, age, balance):
+        super().__init__(name, age)  # Gets attributes from User class
+        self.balance = balance
+
 
 
 # class crypt portfolio:
