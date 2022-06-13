@@ -29,7 +29,15 @@ class Bank(User):  # Create a bank and will inherit from the user
         self.total_deposits += 1
         return f"Your balance is now: {round(self.balance, 2)}"
 
-    
+    def withdraws(self):
+        wd = float(input(f"{self.name.title()}, please enter how much you would like to withdraw"))
+        if self.balance < wd:
+            return "You can't withdraw that amount"
+        else:
+            print("Thank you for withdrawing...")
+            self.balance -= wd
+            self.total_withdraws += 1
+            return f"Your balance is now: {round(self.balance, 2)}"
 
 # class crypt portfolio:
 
