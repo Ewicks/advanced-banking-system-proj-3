@@ -1,6 +1,7 @@
 # import colorama
 # from colorama import Fore, Style
 
+
 class User:
     def __init__(self, fname, lname, age):
         self.fname = fname
@@ -9,6 +10,7 @@ class User:
 
     def user_detials(self):
         f"Hello {self.fname} {self.lname} welcome to our advanced banking system"
+
 
 class Bank(User):  # Create a bank and will inherit from the user
     # Bank has its own attributes of total deposits and total withdraws
@@ -62,7 +64,6 @@ def get_int(self):
 
             except ValueError:
                 print(f"\nNot an integer, try again\n")
-        
 
 
 user_details_confirmation = ''
