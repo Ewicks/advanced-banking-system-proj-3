@@ -23,14 +23,14 @@ class Bank(User):  # Create a bank and will inherit from the user
         return f"{self.fname} has a remaining balance of: £{round(self.balance, 2)}"
 
     def deposit(self):
-        dp = float(input(f"{self.name.title()}, please enter how much you would like to deposit"))
+        dp = float(input(f"{self.fname.title()}, please enter how much you would like to deposit"))
         print("Thank you for depositing...")
         self.balance += dp
         self.total_deposits += 1
         return f"Your balance is now: {round(self.balance, 2)}"
 
     def withdraws(self):
-        wd = float(input(f"{self.name.title()}, please enter how much you would like to withdraw"))
+        wd = float(input(f"{self.fname.title()}, please enter how much you would like to withdraw"))
         if self.balance < wd:
             return "You can't withdraw that amount"
         else:
