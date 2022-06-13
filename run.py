@@ -14,6 +14,20 @@ class User:
 
 
 
+def get_int(self):
+        """
+        Function that handles user input for different numbers. As long as
+        the input value is determined to be an integer, it is returned.
+        Otherwise, a ValueError is raised to print the message below.
+        """
+        while True:
+            try:
+                return int(input(self))
+
+            except ValueError:
+                print(f"\nNot an integer, try again\n")
+        
+
 
 user_details_confirmation = ''
 details = True
