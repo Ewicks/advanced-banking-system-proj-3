@@ -1,5 +1,5 @@
-import colorama
-from colorama import Fore, Style
+# import colorama
+# from colorama import Fore, Style
 
 class User:
     def __init__(self, fname, lname, age):
@@ -15,11 +15,21 @@ class Bank(User):  # Create a bank and will inherit from the user
     total_deposits = 0
     total_withdraws = 0
 
-    def __init__(self, name, age, balance):
-        super().__init__(name, age)  # Gets attributes from User class
+    def __init__(self, fname, age, balance):
+        super().__init__(fname, age)  # Gets attributes from User class
         self.balance = balance
 
+    def show_info(self):
+        return f"{self.fname} has a remaining balance of: £{round(self.balance, 2)}"
 
+    def deposit(self):
+        dp = float(input(f"{self.name.title()}, please enter how much you would like to deposit"))
+        print("Thank you for depositing...")
+        self.balance += dp
+        self.total_deposits += 1
+        return f"Your balance is now: {round(self.balance, 2)}"
+
+    
 
 # class crypt portfolio:
 
