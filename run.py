@@ -90,7 +90,14 @@ def get_str(self):
 
 
 def get_balance(fname, lname):
-    balance = get_int(f'{fname} {lname} Please enter your inital balance: ')
+    while True:
+        balance = input(f'{fname} {lname} please enter your inital balance: £')
+        if (balance.isdigit()):
+            # balance = round(balance, 2)
+            break
+        else:
+            print("\nEnter only numbers\n")
+
     print('-------------------------------------------')
     print('Storing data....')
     print('-------------------------------------------')
@@ -126,9 +133,3 @@ while (details):
 
 user_one_balance = get_balance(user_one.fname, user_one.lname)
 user_one_bank = Bank(user_one.fname, user_one.lname, user_one.age, user_one_balance)
-
-
-
-
-
-
