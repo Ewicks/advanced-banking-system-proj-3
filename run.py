@@ -2,7 +2,6 @@
 # from colorama import Fore, Style
 
 
-
 class User:
     def __init__(self, fname, lname, age):
         self.fname = fname
@@ -106,5 +105,10 @@ while (details):
             f"Last name {lname}\n "
             f"Age: {age}\n").lower()
 
-# while ()
+balance = get_int('Please enter your balance: ')
+
+print('-------------------------------------------')
+print('Storing data....')
+print('-------------------------------------------')
+print(f'You currently have £{balance} in your bank account')
 
