@@ -2,6 +2,7 @@
 # from colorama import Fore, Style
 
 
+
 class User:
     def __init__(self, fname, lname, age):
         self.fname = fname
@@ -9,7 +10,8 @@ class User:
         self.age = age
 
     def user_detials(self):
-        f"Hello {self.fname} {self.lname} welcome to our advanced banking system"
+        f"Hello {self.fname} {self.lname} welcome "
+        f"to our advanced banking system"
 
 
 class Bank(User):  # Create a bank and will inherit from the user
@@ -65,7 +67,8 @@ def get_int(self):
             return int(input(self))
 
         except ValueError:
-            print(f"\n {self} Not an integer, try again\n")
+            print(f"\n Not an integer, try again\n")
+
 
 def get_str(self):
     """
@@ -73,12 +76,18 @@ def get_str(self):
     the input value is determined to be an integer, it is returned.
     Otherwise, a ValueError is raised to print the message below.
     """
-    while True:
-        try:
-            return int(input(self))
 
-        except ValueError:
-            print(f"\n {self} Not an integer, try again\n")
+    while True:
+        a = input(self).title()
+        if (a.isalpha()):
+            return a
+        else:
+            print(f'\nYou entered "{a}" Enter only letters, no special characters\n')
+
+        # try:
+
+        # except ValueError:
+        #     print(f"\n {self} , try again\n")
 
 
 user_details_confirmation = ''
@@ -88,8 +97,8 @@ while (details):
         print("Thank you")
         details = False
     else:
-        fname = input("Enter your first name: ")
-        lname = input("Enter your last name: ")
+        fname = get_str("Enter your first name: ")
+        lname = get_str("Enter your last name: ")
         age = get_int("Enter your age: ")
         user_details_confirmation = input(
             f"Type 'yes' to confirm your details\n "
@@ -97,5 +106,5 @@ while (details):
             f"Last name {lname}\n "
             f"Age: {age}\n").lower()
 
-while ()
+# while ()
 
