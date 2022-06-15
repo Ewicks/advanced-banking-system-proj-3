@@ -1,8 +1,12 @@
 from requests import Request, Session
 import json
 import pprint
+import os
+if os.path.exists("env.py"):
+    import env 
+
 url = 'https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest'
-# url which the api retreives the latest quotes 
+# url which the api retreives the latest quotes
 
 
 parameters = {
@@ -12,8 +16,8 @@ parameters = {
 }
 
 headers = {
-    'Accepts': 'application/json',
-    'X-CMC_PRO_API_KEY': '01a25dc6-2ab9-4b40-9d83-a3af12ce8239'
+    'X-CMC_PRO_API_KEY': os.environ.get("API"),
+    'Accepts': 'application/json'
 }
 
 session = Session()
