@@ -3,7 +3,7 @@ import json
 import pprint
 import os
 if os.path.exists("env.py"):
-    import env 
+    import env
 
 url = 'https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest'
 # url which the api retreives the latest quotes
@@ -12,11 +12,10 @@ url = 'https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest'
 parameters = {
     'slug': 'bitcoin',
     'convert': 'USD'
-
 }
 
 headers = {
-    'X-CMC_PRO_API_KEY': os.environ.get("API"),
+    'X-CMC_PRO_API_KEY': os.environ.get("API-key"),
     'Accepts': 'application/json'
 }
 
