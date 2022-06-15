@@ -18,11 +18,11 @@ class Bank(User):  # Create a bank and will inherit from the user
     total_deposits = 0
     total_withdraws = 0
 
-    def __init__(self, fname, age, balance):
-        super().__init__(fname, age)  # Gets attributes from User class
+    def __init__(self, fname, lname, age, balance):
+        super().__init__(fname, lname, age)  # Gets attributes from User class
         self.balance = balance
 
-    def show_info(self):
+    def Balance_info(self):
         return f"{self.fname} has a remaining balance of: £{round(self.balance, 2)}"
 
     def deposit(self):
@@ -89,11 +89,29 @@ def get_str(self):
         #     print(f"\n {self} , try again\n")
 
 
+def get_balance(fname, lname):
+    balance = get_int(f'{fname} {lname} Please enter your inital balance: ')
+    print('-------------------------------------------')
+    print('Storing data....')
+    print('-------------------------------------------')
+    print(f'You currently have £{balance} in your bank account\n')
+
+
+def main_menu():
+    print('Welcome to our advance banking system')
+    print('Here are a list of what we can offer you')
+    print('Type the number of which option you want to access')
+    # while True:
+    #     options_choice = get_int("1) See Balance\n2) Withdraw\n3) Deposit\n4) See Total Withdraws\n5) see Total Deposits\n6) Quit\n")
+    #     if options_choice == 1:
+
+
 user_details_confirmation = ''
 details = True
 while (details):
     if user_details_confirmation == 'yes':
         print("Thank you")
+        user_one = User(fname, lname, age)
         break
     else:
         fname = get_str("Enter your first name: ")
@@ -105,10 +123,12 @@ while (details):
             f"Last name {lname}\n "
             f"Age: {age}\n").lower()
 
-balance = get_int('Please enter your balance: ')
 
-print('-------------------------------------------')
-print('Storing data....')
-print('-------------------------------------------')
-print(f'You currently have £{balance} in your bank account')
+user_one_balance = get_balance(user_one.fname, user_one.lname)
+user_one_bank = Bank(user_one.fname, user_one.lname, user_one.age, user_one_balance)
+
+
+
+
+
 
