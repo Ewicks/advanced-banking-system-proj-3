@@ -95,7 +95,7 @@ details = True
 while (details):
     if user_details_confirmation == 'yes':
         print("Thank you")
-        details = False
+        break
     else:
         fname = get_str("Enter your first name: ")
         lname = get_str("Enter your last name: ")
