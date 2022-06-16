@@ -1,13 +1,14 @@
 import sys
 import os
 import time
-
+from coinmarketcap import *
 
 def clear_terminal():
     """
     This will clear terminal when called
     """
     os.system('clear')
+
 
 def welcome_screen():
     """
@@ -186,7 +187,6 @@ def main_menu():
         else:
             clear_terminal()
             print("Please choose a number from 1-7.")
-
 
 
 welcome_screen()
