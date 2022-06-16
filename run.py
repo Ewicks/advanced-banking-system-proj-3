@@ -22,7 +22,7 @@ class Bank(User):  # Create a bank and will inherit from the user
         super().__init__(fname, lname, age)  # Gets attributes from User class
         self.balance = balance
 
-    def Balance_info(self):
+    def balance_info(self):
         return f"{self.fname} has a remaining balance of: £{round(self.balance, 2)}"
 
     def deposit(self):
@@ -120,9 +120,34 @@ def main_menu():
     print('Welcome to our advance banking system')
     print('Here are a list of what we can offer you')
     print('Type the number of which option you want to access')
-    # while True:
-    #     options_choice = get_int("1) See Balance\n2) Withdraw\n3) Deposit\n4) See Total Withdraws\n5) see Total Deposits\n6) Quit\n")
-    #     if options_choice == 1:
+    while True:
+        options_choice = get_int("1) See Balance\n2) Withdraw\n3) Deposit\n4) See Total Withdraws\n5) see Total Deposits\n6) Crypto Portfolio\n7) exit\n")
+        if options_choice == 1:
+            print(user_one_bank.balance_info())
+
+        elif options_choice == 2:
+            print(user_one_bank.withdraws())
+
+        elif options_choice == 3:
+            print(user_one_bank.deposit())
+
+        elif options_choice == 4:
+            print(f"There have been {user_one_bank.total_withdraws} withdraws.")
+
+        elif option_choice == 5:
+            print(f"There have been {user_one_bank.total_deposits} deposits.")
+
+        elif options_choice == 6:
+            print(user_one_crypto_portfolio.show_portfolio)
+
+        elif options_choice == 7:
+            print("Thank you for using our Bank")
+            return False
+            break
+        else:
+            print("Please choose a number from 1-7.")
+
+
 
 
 user_details_confirmation = ''

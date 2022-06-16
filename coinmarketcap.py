@@ -54,8 +54,8 @@ def get_crypto_price(crypto_name):
     print(price)
         
 
-def display_all_crypto_prices():
-   
+# def display_all_crypto_prices():
+    
 
 def get_all_prices():
     for x in coins:
@@ -63,10 +63,10 @@ def get_all_prices():
             price = float((x['quote']['USD']['price']))
         print(price)
 
+
 def get_all_cryptos():
     for x in crypto_List:
         print(x)
-   
    
 
 get_all_cryptos()
