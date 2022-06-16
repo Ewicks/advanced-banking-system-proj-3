@@ -1,4 +1,36 @@
 import sys
+import os
+import time
+
+
+def clear_terminal():
+    """
+    This will clear terminal when called
+    """
+    os.system('clear')
+
+def welcome_screen():
+    """
+    Function which gets called when game is run
+    """
+
+    print('##############################################')
+    print('####### Welcome to our banking system ########'                                 )
+    print('##############################################')
+    print('                                          ~/        ')
+    print('                                        ~/          ')
+    print('                            ~|       ~/             ')
+    print('                          ~/  ~\  ~/                 ')
+    print('                        ~/      ~|                   ')
+    print('             ~|      ~/                              ')
+    print('           ~/      ~/                                ')
+    print('         ~/      ~|                                  ')
+    print('      ~/                                             ')
+    print('   ~~/                                               ')
+    print('~~/                                                  ')
+
+    time.sleep(4)
+    clear_terminal()
 
 
 class User:
@@ -149,7 +181,7 @@ def main_menu():
 
 
 
-
+welcome_screen()
 user_details_confirmation = ''
 while True:
     if user_details_confirmation == 'yes':
