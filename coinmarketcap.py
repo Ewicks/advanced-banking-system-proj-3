@@ -31,32 +31,47 @@ try:
 except (ConnectionError, Timeout, TooManyRedirects) as e:
     print(e)
 
+class Crypto_currency():
+    def display_crypto_portfolio():
+        print('##############################################')
+        print('###### Welcome to your Crypto Portfolio ######')
+        print('##############################################')
 
-def get_crypto_list():
-    for d in data['data']:
-        crypto_name_from_api = d['symbol']
-        crypto_List.append(crypto_name_from_api)
+        # TODO display all crypt invested here
 
-
-price_list = []
-
-
-def get_price_list():
-    for x in coins:
-        for x['symbol'] in coins:
-            price = float((x['quote']['USD']['price']))
-        price_list.append(price)
+    def amount_to_invest():
+        amount = input('How much money would you like to invest in a crypto currency: $')
 
 
-# - validate to see if user entered crypto which is in crypto list
 
-# - get crpto price
 
-def display_current_coin_values():
-    get_crypto_list()
-    get_price_list()
-    for x, y in zip(crypto_List, price_list):
-        print(f'\n{x} - {y}\n')
-        print('-----------------------------')
 
-# get_crypto_price('ETH')
+
+
+    def get_crypto_list():
+        for d in data['data']:
+            crypto_name_from_api = d['symbol']
+            crypto_List.append(crypto_name_from_api)
+
+
+    price_list = []
+
+    def get_price_list():
+        for x in coins:
+            for x['symbol'] in coins:
+                price = float((x['quote']['USD']['price']))
+            price_list.append(price)
+
+
+    # - validate to see if user entered crypto which is in crypto list
+
+    # - get crpto price
+
+    def display_current_coin_values():
+        get_crypto_list()
+        get_price_list()
+        for x, y in zip(crypto_List, price_list):
+            print(f'\n{x} - {y}\n')
+            print('-----------------------------')
+
+    # get_crypto_price('ETH')
