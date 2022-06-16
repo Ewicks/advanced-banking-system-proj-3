@@ -46,54 +46,18 @@ def get_price_list():
         for x['symbol'] in coins:
             price = float((x['quote']['USD']['price']))
         price_list.append(price)
-        
-# get_price_list()
-# print(price_list)
-# get_crypto_list()
-# print(crypto_List)
 
 
 # - validate to see if user entered crypto which is in crypto list
 
 # - get crpto price
 
+def display_current_coin_values():
+    get_crypto_list()
+    get_price_list()
+    for x, y in zip(crypto_List, price_list):
+        print(f'\n{x} - {y}\n')
+        print('-----------------------------')
 
-# def get_crypto_price(crypto_name):
-#     price = 0
-#     for x in coins:
-#         if x['symbol'] == crypto_name:
-#             price = float((x['quote']['USD']['price']))
-#     print(price)
-        
-
-# def display_all_crypto_prices():
-    
-
-# def get_all_prices():
-#     for x in coins:
-#         for x['symbol'] in coins:
-#             price = float((x['quote']['USD']['price']))
-#         print(price)
-
-
-def get_all_cryptos():
-    for x in crypto_List:
-        print(x)
-   
-
-
-
-get_crypto_list()
-get_price_list()
-
-for f, b in zip(crypto_List, price_list):
-    print(f, b)
-
-
-# get_all_cryptos()
-
-
-# get_all_cryptos()
-# get_all_prices()
-
+display_current_coin_values()
 # get_crypto_price('ETH')
