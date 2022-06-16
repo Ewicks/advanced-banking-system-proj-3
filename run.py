@@ -1,5 +1,4 @@
-# import colorama
-# from colorama import Fore, Style
+import sys
 
 
 class User:
@@ -144,8 +143,7 @@ def main_menu():
 
         elif options_choice == 7:
             print("Thank you for using our Bank")
-            return False
-            break
+            sys.exit()
         else:
             print("Please choose a number from 1-7.")
 
