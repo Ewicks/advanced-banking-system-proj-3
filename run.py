@@ -156,27 +156,35 @@ def main_menu():
     while True:
         options_choice = get_int("1) See Balance\n2) Withdraw\n3) Deposit\n4) See Total Withdraws\n5) see Total Deposits\n6) Crypto Portfolio\n7) exit\n")
         if options_choice == 1:
+            clear_terminal()
             print(user_one_bank.balance_info())
 
         elif options_choice == 2:
+            clear_terminal()
             print(user_one_bank.withdraws())
 
         elif options_choice == 3:
+            clear_terminal()
             print(user_one_bank.deposit())
 
         elif options_choice == 4:
+            clear_terminal()
             print(f"There have been {user_one_bank.total_withdraws} withdraws.")
 
         elif options_choice == 5:
+            clear_terminal()
             print(f"There have been {user_one_bank.total_deposits} deposits.")
 
         elif options_choice == 6:
+            clear_terminal()
             print(user_one_crypto_portfolio.show_portfolio)
 
         elif options_choice == 7:
+            clear_terminal()
             print("Thank you for using our Bank")
             sys.exit()
         else:
+            clear_terminal()
             print("Please choose a number from 1-7.")
 
 
@@ -187,6 +195,7 @@ while True:
     if user_details_confirmation == 'yes':
         print("Thank you")
         user_one = User(fname, lname, age)
+        clear_terminal()
         break
     else:
         fname = get_str("Enter your first name: ")
@@ -203,3 +212,10 @@ user_one_balance = get_balance(user_one.fname, user_one.lname)
 print(user_one_balance)
 user_one_bank = Bank(user_one.fname, user_one.lname, user_one.age, user_one_balance)
 main_menu()
+
+
+# TODO find a way to validate numbers with dec places an use on Bank class
+
+# TODO improve welcome screen
+
+# 
