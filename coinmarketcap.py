@@ -59,5 +59,4 @@ def display_current_coin_values():
         print(f'\n{x} - {y}\n')
         print('-----------------------------')
 
-display_current_coin_values()
 # get_crypto_price('ETH')

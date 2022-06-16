@@ -23,7 +23,7 @@ class Bank(User):  # Create a bank and will inherit from the user
         self.balance = balance
 
     def balance_info(self):
-        return f"{self.fname} has a remaining balance of: £{round(self.balance, 2)}"
+        return f"{self.fname} has a remaining balance of: £{self.balance}"
 
     def deposit(self):
         dp = float(input(f"{self.fname.title()}, please enter how much you would like to deposit"))
@@ -71,9 +71,7 @@ def get_int(self):
 
 def get_str(self):
     """
-    Function that handles user input for different numbers. As long as
-    the input value is determined to be an integer, it is returned.
-    Otherwise, a ValueError is raised to print the message below.
+   
     """
 
     while True:
@@ -106,6 +104,7 @@ def get_balance(fname, lname):
         balance = float(input(f'{fname} {lname} please enter your inital balance: £'))
         if (balance):
             balance = round(balance, 2)
+            return balance
             break
         else:
             print("\nEnter only numbers\n")
@@ -134,7 +133,7 @@ def main_menu():
         elif options_choice == 4:
             print(f"There have been {user_one_bank.total_withdraws} withdraws.")
 
-        elif option_choice == 5:
+        elif options_choice == 5:
             print(f"There have been {user_one_bank.total_deposits} deposits.")
 
         elif options_choice == 6:
@@ -168,4 +167,6 @@ while True:
 
 
 user_one_balance = get_balance(user_one.fname, user_one.lname)
+print(user_one_balance)
 user_one_bank = Bank(user_one.fname, user_one.lname, user_one.age, user_one_balance)
+main_menu()
