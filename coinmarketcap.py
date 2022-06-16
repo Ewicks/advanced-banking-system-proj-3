@@ -1,26 +1,69 @@
 from requests import Request, Session
+from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 import pprint
 import os
 if os.path.exists("env.py"):
     import env
 
-url = 'https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest'
-# url which the api retreives the latest quotes
 
+crypto_List = []
+url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 
 parameters = {
-    'slug': 'bitcoin',
-    'convert': 'USD'
+  'start': '1',
+  'limit': '5',
+  'convert': 'USD'
 }
-
 headers = {
+    'Accepts': 'application/json',
     'X-CMC_PRO_API_KEY': os.environ.get("API-key"),
-    'Accepts': 'application/json'
 }
 
 session = Session()
 session.headers.update(headers)
 
-response = session.get(url, params=parameters)
-pprint.pprint(json.loads(response.text)['data']['1']['quote']['USD']['price'])
+try:
+    response = session.get(url, params=parameters)
+    data = json.loads(response.text)
+    coins = data['data']
+
+except (ConnectionError, Timeout, TooManyRedirects) as e:
+    print(e)
+
+
+def get_crypto_list():
+    for d in data['data']:
+        crypto_name_from_api = d['symbol']
+        crypto_List.append(crypto_name_from_api)
+
+get_crypto_list()
+print(crypto_List)
+
+
+# - validate to see if user entered crypto which is in crypto list
+
+# - get crpto price
+
+
+def get_crypto_price(crypto_name):
+    price = 0
+    for x in coins:
+        if x['symbol'] == crypto_name:
+            price = float((x['quote']['USD']['price']))
+    print(price)
+        
+
+
+def display_all_crypto_prices():
+    for x in crypto_List:
+        print(x)
+    for x in coins:
+        for x['symbol'] in coins:
+            price = float((x['quote']['USD']['price']))
+        print(price)
+    print('The prices are')
+
+display_all_crypto_prices()
+
+# get_crypto_price('ETH')

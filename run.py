@@ -89,11 +89,23 @@ def get_str(self):
         #     print(f"\n {self} , try again\n")
 
 
+def validate_num(balance):
+    """
+    Will validate is the users coin amount to ensure only contains numbers
+    """
+    try:
+        balance = float(balance)
+        print(f"Amount entered is valid")
+
+    except ValueError:
+        print(f"  Amount must be a number!")
+
+
 def get_balance(fname, lname):
     while True:
-        balance = input(f'{fname} {lname} please enter your inital balance: £')
-        if (balance.isdigit()):
-            # balance = round(balance, 2)
+        balance = float(input(f'{fname} {lname} please enter your inital balance: £'))
+        if (balance):
+            balance = round(balance, 2)
             break
         else:
             print("\nEnter only numbers\n")
@@ -114,8 +126,7 @@ def main_menu():
 
 
 user_details_confirmation = ''
-details = True
-while (details):
+while True:
     if user_details_confirmation == 'yes':
         print("Thank you")
         user_one = User(fname, lname, age)
@@ -128,7 +139,7 @@ while (details):
             f"Type 'yes' to confirm your details\n "
             f"First name: {fname}\n "
             f"Last name {lname}\n "
-            f"Age: {age}\n").lower()
+            f"Age: {age}\n")
 
 
 user_one_balance = get_balance(user_one.fname, user_one.lname)
