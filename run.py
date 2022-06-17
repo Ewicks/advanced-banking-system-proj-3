@@ -2,6 +2,9 @@ import sys
 import os
 import time
 from coinmarketcap import *
+import colorama
+from colorama import Fore, Back, Style
+colorama.init(autoreset=True)
 
 
 def clear_terminal():
@@ -16,9 +19,9 @@ def welcome_screen():
     Function which gets called when game is run
     """
 
-    print('##############################################')
-    print('####### Welcome to our banking system ########'                                 )
-    print('##############################################')
+    print(f'{Fore.BLUE}{Style.BRIGHT}##############################################')
+    print(f'{Fore.BLUE}{Style.BRIGHT}####### Welcome to our banking system ########')
+    print(f'{Fore.BLUE}{Style.BRIGHT}##############################################')
     print('                                          ~/        ')
     print('                                        ~/          ')
     print('                            ~|       ~/             ')
@@ -107,7 +110,7 @@ class Bank(User):  # Create a bank and will inherit from the user
 
 class crypto_portfolio(Bank):
 
-    def __init__(self, fname, lname, age, balance, crypto_List):
+    def __init__(self, fname, lname, age, balance):
         super().__init__(fname, lname, age, balance)  # Gets attributes from User class
 
     
@@ -135,30 +138,32 @@ class crypto_portfolio(Bank):
                 print('processing data......')
                 print('------------------------')
                 time.sleep(2)
+                return amount
                 break
             else:
                 print('You have not got enough money')
                 
                 
-    def crypto_to_invest(self, crypto_List):
+    def crypto_to_invest(self):
         while True:
             crypto_type = input('which coin would you like to invest in: ').upper()
             if crypto_type in crypto_List:
                 print(' is in our crypto bank')
+                break
             else:
                 print("This crypto is not found in our crypto bank, please choose another one")
 
-    def calculate_crypto(usd, crypto_type):
+    def calculate_crypto(self):
         for x in coins:
             if x['symbol'] == crypto_type:
                 price = float((x['quote']['USD']['price']))
 
-        amount_of_crypto = usd/price
+        amount_of_crypto = amount/price
 
 
+    
 
-
-    price_list = []
+    # price_list = []
 
     def get_price_list(self):
         for x in coins:
@@ -221,21 +226,25 @@ def get_balance(fname, lname):
         balance = float(input(f'{fname} {lname} please enter your inital balance: £'))
         if (balance):
             balance = round(balance, 2)
+            print(f'{Fore.GREEN}{Style.BRIGHT}-------------------------------------------')
+            print(f'{Fore.GREEN}{Style.BRIGHT}Storing data....')
+            print(f'{Fore.GREEN}{Style.BRIGHT}-------------------------------------------')
+            time.sleep(2)
+            print(f'You currently have £{balance} in your bank account\n')
             return balance
             break
         else:
             print("\nEnter only numbers\n")
 
-    print('-------------------------------------------')
-    print('Storing data....')
-    print('-------------------------------------------')
-    print(f'You currently have £{balance} in your bank account\n')
+    
 
 
 def main_menu():
-    print('Welcome to our advance banking system')
-    print('Here are a list of what we can offer you')
-    print('Type the number of which option you want to access')
+    print(f'{Fore.GREEN}{Style.BRIGHT}------------------------------------------------')
+    print(f'{Fore.GREEN}{Style.BRIGHT}--------- Welcome to our banking system --------')
+    print(f'{Fore.GREEN}{Style.BRIGHT}------------------------------------------------\n')
+    print(f'{Fore.GREEN}Here are a list of what we can offer you\n')
+    print(f'{Fore.GREEN}Type the number of which option you want to access\n')
     while True:
         options_choice = get_int("1) See Balance\n2) Withdraw\n3) Deposit\n4) See Total Withdraws\n5) see Total Deposits\n6) Crypto Portfolio\n7) exit\n")
         if options_choice == 1:
@@ -263,10 +272,11 @@ def main_menu():
             get_crypto_list()
             print(user_one_portfolio.display_crypto_portfolio())
             print(user_one_portfolio.amount_to_invest(user_one_balance))
-            print(user_one_portfolio.crypto_to_invest(crypto_List))
+            print(user_one_portfolio.crypto_to_invest())
+            print(user_one_portfolio.calculate_crypto())
+
             break
             
-
         elif options_choice == 7:
             clear_terminal()
             print("Thank you for using our Bank")
