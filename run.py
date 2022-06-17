@@ -34,6 +34,21 @@ def welcome_screen():
     clear_terminal()
 
 
+# def validate_int(self):
+#     """
+#     Will validate is the users coin amount to ensure only contains numbers
+#     """
+    
+#     try:
+#         amount = float(amount)
+#         print(f"Amount entered is valid")
+#         return True
+
+#     except ValueError:
+#         print(f"  Amount must be a number!")
+#         return False
+
+
 class User:
     def __init__(self, fname, lname, age):
         self.fname = fname
@@ -89,19 +104,37 @@ class Bank(User):  # Create a bank and will inherit from the user
 
 # TODO: - displays all crypto with amount invested in each crypto currency
 
-class Crypto_currency(Bank):
-    def display_crypto_portfolio():
+class crypto_portfolio(Bank):
+
+    def __init__(self, fname, lname, age, balance):
+        super().__init__(fname, lname, age, balance)  # Gets attributes from User class
+
+    
+    def display_crypto_portfolio(self):
         print('##############################################')
         print('###### Welcome to your Crypto Portfolio ######')
         print('##############################################')
 
         # TODO display all crypt invested here
 
-    def __init__(self, fname, lname, age, balance, usd, crpto_type):
-        super().__init__(fname, lname, age, balance)  # Gets attributes from User class
+        # decision = input('Would you like to invest?').lower()
+        # if decision == 'yes':
+        #     amount_to_invest()
+        # else:
+        #     main_menu()
+        
 
-    def amount_to_invest():
-        amount = input('How much money would you like to invest in a crypto currency: $')
+    def amount_to_invest(self, balance):
+
+        while True:
+            amount = int(input('How much money would you like to invest in a crypto currency: $'))
+            if amount < self.balance:
+                balance = balance - amount
+                break
+            else:
+                print('You have not got enough money')
+                
+                
      
     def get_crypto_list():
         for d in data['data']:
@@ -111,7 +144,7 @@ class Crypto_currency(Bank):
 
     price_list = []
 
-    def get_price_list():
+    def get_price_list(self):
         for x in coins:
             for x['symbol'] in coins:
                 price = float((x['quote']['USD']['price']))
@@ -167,18 +200,6 @@ def get_str(self):
         #     print(f"\n {self} , try again\n")
 
 
-def validate_num(balance):
-    """
-    Will validate is the users coin amount to ensure only contains numbers
-    """
-    try:
-        balance = float(balance)
-        print(f"Amount entered is valid")
-
-    except ValueError:
-        print(f"  Amount must be a number!")
-
-
 def get_balance(fname, lname):
     while True:
         balance = float(input(f'{fname} {lname} please enter your inital balance: £'))
@@ -223,7 +244,10 @@ def main_menu():
 
         elif options_choice == 6:
             clear_terminal()
-            print(user_one_crypto_portfolio.show_portfolio)
+            print(user_one_portfolio.display_crypto_portfolio())
+            print(user_one_portfolio.amount_to_invest(user_one_balance))
+            break
+            
 
         elif options_choice == 7:
             clear_terminal()
@@ -254,8 +278,9 @@ while True:
 
 
 user_one_balance = get_balance(user_one.fname, user_one.lname)
-print(user_one_balance)
 user_one_bank = Bank(user_one.fname, user_one.lname, user_one.age, user_one_balance)
+user_one_portfolio = crypto_portfolio(user_one.fname, user_one.lname, user_one.age, user_one_balance)
+
 main_menu()
 
 
