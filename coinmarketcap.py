@@ -7,7 +7,6 @@ if os.path.exists("env.py"):
     import env
 
 
-crypto_List = []
 url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 
 parameters = {
@@ -31,27 +30,22 @@ try:
 except (ConnectionError, Timeout, TooManyRedirects) as e:
     print(e)
 
-class Crypto_currency():
-    def display_crypto_portfolio():
-        print('##############################################')
-        print('###### Welcome to your Crypto Portfolio ######')
-        print('##############################################')
+# class Crypto_currency():
+#     def display_crypto_portfolio():
+#         print('##############################################')
+#         print('###### Welcome to your Crypto Portfolio ######')
+#         print('##############################################')
 
-        # TODO display all crypt invested here
+#         # TODO display all crypt invested here
 
-    def amount_to_invest():
-        amount = input('How much money would you like to invest in a crypto currency: $')
-
+    
 
 
-
-
-
-
-    def get_crypto_list():
-        for d in data['data']:
-            crypto_name_from_api = d['symbol']
-            crypto_List.append(crypto_name_from_api)
+crypto_List = []
+def get_crypto_list():
+    for d in data['data']:
+        crypto_name_from_api = d['symbol']
+        crypto_List.append(crypto_name_from_api)
 
 
     price_list = []

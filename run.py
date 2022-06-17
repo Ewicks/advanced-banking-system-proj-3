@@ -3,6 +3,7 @@ import os
 import time
 from coinmarketcap import *
 
+
 def clear_terminal():
     """
     This will clear terminal when called
@@ -106,7 +107,7 @@ class Bank(User):  # Create a bank and will inherit from the user
 
 class crypto_portfolio(Bank):
 
-    def __init__(self, fname, lname, age, balance):
+    def __init__(self, fname, lname, age, balance, crypto_List):
         super().__init__(fname, lname, age, balance)  # Gets attributes from User class
 
     
@@ -122,7 +123,7 @@ class crypto_portfolio(Bank):
         #     amount_to_invest()
         # else:
         #     main_menu()
-        
+
 
     def amount_to_invest(self, balance):
 
@@ -130,16 +131,25 @@ class crypto_portfolio(Bank):
             amount = int(input('How much money would you like to invest in a crypto currency: $'))
             if amount < self.balance:
                 balance = balance - amount
+                print('------------------------')
+                print('processing data......')
+                print('------------------------')
+                time.sleep(2)
                 break
             else:
                 print('You have not got enough money')
                 
                 
-     
-    def get_crypto_list():
-        for d in data['data']:
-            crypto_name_from_api = d['symbol']
-            crypto_List.append(crypto_name_from_api)
+    def crypto_to_invest(self, crypto_List):
+        while True:
+            crypto_type = input('which coin would you like to invest in: ').upper()
+            if crypto_type in crypto_List:
+                print(' is in our crypto bank')
+            else:
+                print("This crypto is not found in our crypto bank, please choose another one")
+
+
+
 
 
     price_list = []
@@ -244,8 +254,10 @@ def main_menu():
 
         elif options_choice == 6:
             clear_terminal()
+            get_crypto_list()
             print(user_one_portfolio.display_crypto_portfolio())
             print(user_one_portfolio.amount_to_invest(user_one_balance))
+            print(user_one_portfolio.crypto_to_invest(crypto_List))
             break
             
 
@@ -280,6 +292,7 @@ while True:
 user_one_balance = get_balance(user_one.fname, user_one.lname)
 user_one_bank = Bank(user_one.fname, user_one.lname, user_one.age, user_one_balance)
 user_one_portfolio = crypto_portfolio(user_one.fname, user_one.lname, user_one.age, user_one_balance)
+
 
 main_menu()
 
