@@ -148,6 +148,12 @@ class crypto_portfolio(Bank):
             else:
                 print("This crypto is not found in our crypto bank, please choose another one")
 
+    def calculate_crypto(usd, crypto_type):
+        for x in coins:
+            if x['symbol'] == crypto_type:
+                price = float((x['quote']['USD']['price']))
+
+        amount_of_crypto = usd/price
 
 
 
