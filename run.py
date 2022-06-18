@@ -53,6 +53,38 @@ def welcome_screen():
 #         return False
 
 
+def get_int(self):
+    """
+    Function that handles user input for different numbers. As long as
+    the input value is determined to be an integer, it is returned.
+    Otherwise, a ValueError is raised to print the message below.
+    """
+    while True:
+        try:
+            return int(input(self))
+
+        except ValueError:
+            print(f"\n Not an integer, try again\n")
+
+
+def get_str(self):
+    """
+   
+    """
+
+    while True:
+        a = input(self).title()
+        if (a.isalpha()):
+            return a
+        else:
+            print(f'\nYou entered "{a}" Enter only letters, no special characters\n')
+
+        # try:
+
+        # except ValueError:
+        #     print(f"\n {self} , try again\n")
+
+
 class User:
     def __init__(self, fname, lname, age):
         self.fname = fname
@@ -137,6 +169,13 @@ class crypto_portfolio(Bank):
     #         amount_to_invest()
     #     else:
     #         main_menu()
+    def calculate_crypto(self):
+        for x in coins:
+            if x['symbol'] == crypto_type:
+                price = float((x['quote']['USD']['price']))
+
+        amount_of_crypto = amount/price
+        return amount_of_crypto
 
 
     def amount_to_invest(self, balance):
@@ -149,13 +188,11 @@ class crypto_portfolio(Bank):
                 print('processing data......')
                 print('------------------------')
                 time.sleep(2)
-                return amount
                 break
+
             else:
                 print('You have not got enough money')
                 
-                
-    def crypto_to_invest(self):
         while True:
             crypto_type = input('which coin would you like to invest in: ').upper()
             if crypto_type in crypto_List:
@@ -164,13 +201,8 @@ class crypto_portfolio(Bank):
             else:
                 print("This crypto is not found in our crypto bank, please choose another one")
 
-    def calculate_crypto(self):
-        for x in coins:
-            if x['symbol'] == crypto_type:
-                price = float((x['quote']['USD']['price']))
 
-        amount_of_crypto = amount/price
-
+   
 
     
 
@@ -198,38 +230,6 @@ class crypto_portfolio(Bank):
 
     # def calculate_crypto(amount, crypto_type):
 
-
-
-def get_int(self):
-    """
-    Function that handles user input for different numbers. As long as
-    the input value is determined to be an integer, it is returned.
-    Otherwise, a ValueError is raised to print the message below.
-    """
-    while True:
-        try:
-            return int(input(self))
-
-        except ValueError:
-            print(f"\n Not an integer, try again\n")
-
-
-def get_str(self):
-    """
-   
-    """
-
-    while True:
-        a = input(self).title()
-        if (a.isalpha()):
-            return a
-        else:
-            print(f'\nYou entered "{a}" Enter only letters, no special characters\n')
-
-        # try:
-
-        # except ValueError:
-        #     print(f"\n {self} , try again\n")
 
 
 def get_balance(fname, lname):
@@ -283,7 +283,6 @@ def main_menu():
             get_crypto_list()
             print(user_one_portfolio.display_crypto_portfolio())
             print(user_one_portfolio.amount_to_invest(user_one_balance))
-            print(user_one_portfolio.crypto_to_invest())
             print(user_one_portfolio.calculate_crypto())
 
             break
