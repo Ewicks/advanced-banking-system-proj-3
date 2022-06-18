@@ -229,9 +229,9 @@ def get_balance(fname, lname):
         balance = float(input(f'{fname} {lname} please enter your inital balance: £'))
         if (balance):
             balance = round(balance, 2)
-            print(f'{Fore.GREEN}{Style.BRIGHT}-------------------------------------------')
-            print(f'{Fore.GREEN}{Style.BRIGHT}Storing data....')
-            print(f'{Fore.GREEN}{Style.BRIGHT}-------------------------------------------')
+            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-------------------------------------------')
+            print(f'{Fore.BLUE}{Style.BRIGHT}Storing data....')
+            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-------------------------------------------')
             time.sleep(2)
             print(f'You currently have £{balance} in your bank account\n')
             time.sleep(2)
@@ -245,11 +245,11 @@ def get_balance(fname, lname):
 
 
 def main_menu():
-    print(f'{Fore.GREEN}{Style.BRIGHT}------------------------------------------------')
-    print(f'{Fore.GREEN}{Style.BRIGHT}--------- Welcome to our banking system --------')
-    print(f'{Fore.GREEN}{Style.BRIGHT}------------------------------------------------\n')
-    print(f'{Fore.GREEN}Here are a list of what we can offer you\n')
-    print(f'{Fore.GREEN}Type the number of which option you want to access\n')
+    print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------------------')
+    print(f'{Fore.BLUE}{Style.BRIGHT}--------- Welcome to our banking system --------')
+    print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------------------\n')
+    print(f'{Fore.BLUE}Here are a list of what we can offer you\n')
+    print(f'{Fore.BLUE}Type the number of which option you want to access\n')
     while True:
         options_choice = get_int("1) See Balance\n2) Withdraw\n3) Deposit\n4) See Total Withdraws\n5) see Total Deposits\n6) Crypto Portfolio\n7) exit\n")
         if options_choice == 1:
