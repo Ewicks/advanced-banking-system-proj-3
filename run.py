@@ -290,6 +290,15 @@ def main_menu():
             print("Please choose a number from 1-7.")
 
 
+crypto_List = []
+
+
+def get_crypto_list():
+    for d in data['data']:
+        crypto_name_from_api = d['symbol']
+        crypto_List.append(crypto_name_from_api)
+
+
 welcome_screen()
 user_details_confirmation = ''
 while True:
