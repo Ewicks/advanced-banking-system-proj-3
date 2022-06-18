@@ -24,7 +24,7 @@ def welcome_screen():
     title = pyfiglet.figlet_format("Welcome\nTo\nBank\nWicksy", width = 51)
     print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}{title}')
 
-    time.sleep(7)
+    time.sleep(5)
     clear_terminal()
 
 def outro_screen():
@@ -32,6 +32,7 @@ def outro_screen():
     """
     outro_title = pyfiglet.figlet_format("Thank You\nFor Using\n Bank\nWicksy", width = 51)
     print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}{outro_title}')
+    time.sleep(4)
 
 # def validate_int(self):
 #     """
@@ -233,7 +234,7 @@ def get_balance(fname, lname):
             print(f'{Fore.GREEN}{Style.BRIGHT}-------------------------------------------')
             time.sleep(2)
             print(f'You currently have £{balance} in your bank account\n')
-            time.sleep(1)
+            time.sleep(2)
             clear_terminal()
             return balance
             break
@@ -283,7 +284,6 @@ def main_menu():
         elif options_choice == 7:
             clear_terminal()
             outro_screen()
-            time.sleep(4)
             sys.exit()
         else:
             clear_terminal()
@@ -299,11 +299,15 @@ while True:
         clear_terminal()
         break
     else:
-        fname = get_str("Enter your first name: \n")
-        lname = get_str("Enter your last name: \n")
-        age = get_int("Enter your age: \n")
+        print(f"{Fore.BLUE}{Style.BRIGHT}First we need to get a few important details from you.\n")
+        fname = get_str("Enter your first name: ")
+        print('\n')
+        lname = get_str("Enter your last name: ")
+        print('\n')
+        age = get_int("Enter your age: ")
+
         user_details_confirmation = input(
-            f"Type 'yes' to confirm your details\n "
+            f"\nType 'yes' to confirm your details\n "
             f"First name: {fname}\n "
             f"Last name {lname}\n "
             f"Age: {age}\n")
