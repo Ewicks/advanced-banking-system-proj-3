@@ -117,15 +117,26 @@ class crypto_portfolio(Bank):
     def display_crypto_portfolio(self):
         print('##############################################')
         print('###### Welcome to your Crypto Portfolio ######')
-        print('##############################################')
+        print('##############################################\n')
+        print('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
+        print('$                                             $')
+        print('$                                             $')
+        print('$                                             $')
+        print('$                                             $')
+        print('$                                             $')
+        print('$                                             $')
+        print('$                                             $')
+        print('$                                             $')
+        print('$                                             $')
+        print('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
 
         # TODO display all crypt invested here
-
-        # decision = input('Would you like to invest?').lower()
-        # if decision == 'yes':
-        #     amount_to_invest()
-        # else:
-        #     main_menu()
+    # def 
+    #     decision = input('Would you like to invest?').lower()
+    #     if decision == 'yes':
+    #         amount_to_invest()
+    #     else:
+    #         main_menu()
 
 
     def amount_to_invest(self, balance):
