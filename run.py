@@ -3,8 +3,10 @@ import os
 import time
 from coinmarketcap import *
 import colorama
+import pyfiglet
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
+
 
 
 def clear_terminal():
@@ -19,22 +21,10 @@ def welcome_screen():
     Function which gets called when game is run
     """
 
-    print(f'{Fore.BLUE}{Style.BRIGHT}##############################################')
-    print(f'{Fore.BLUE}{Style.BRIGHT}####### Welcome to our banking system ########')
-    print(f'{Fore.BLUE}{Style.BRIGHT}##############################################')
-    print('                                          ~/        ')
-    print('                                        ~/          ')
-    print('                            ~|       ~/             ')
-    print('                          ~/  ~\  ~/                 ')
-    print('                        ~/      ~|                   ')
-    print('             ~|      ~/                              ')
-    print('           ~/      ~/                                ')
-    print('         ~/      ~|                                  ')
-    print('      ~/                                             ')
-    print('   ~~/                                               ')
-    print('~~/                                                  ')
+    title = pyfiglet.figlet_format("Welcome\nTo\nBank\nWicksy", width = 51)
+    print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}{title}')
 
-    time.sleep(4)
+    time.sleep(7)
     clear_terminal()
 
 
