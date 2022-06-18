@@ -20,7 +20,7 @@ def welcome_screen():
     """
     displays a welcome message that fills the page
     """
-    title = pyfiglet.figlet_format("Welcome\nTo\nBank\nWicksy", width = 51)
+    title = pyfiglet.figlet_format("Welcome\nTo Bank -\nWicksy", width = 51)
     print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}{title}')
     time.sleep(5)
     clear_terminal()
