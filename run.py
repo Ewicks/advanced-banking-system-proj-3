@@ -192,10 +192,6 @@ class crypto_portfolio(Bank):
                 print("This crypto is not found in our crypto bank, please choose another one")
 
 
-   
-
-    
-
     # price_list = []
 
     def get_price_list(self):
@@ -232,6 +228,8 @@ def get_balance(fname, lname):
             print(f'{Fore.GREEN}{Style.BRIGHT}-------------------------------------------')
             time.sleep(2)
             print(f'You currently have £{balance} in your bank account\n')
+            time.sleep(1)
+            clear_terminal()
             return balance
             break
         else:
@@ -295,9 +293,9 @@ while True:
         clear_terminal()
         break
     else:
-        fname = get_str("Enter your first name: ")
-        lname = get_str("Enter your last name: ")
-        age = get_int("Enter your age: ")
+        fname = get_str("Enter your first name: \n")
+        lname = get_str("Enter your last name: \n")
+        age = get_int("Enter your age: \n")
         user_details_confirmation = input(
             f"Type 'yes' to confirm your details\n "
             f"First name: {fname}\n "
