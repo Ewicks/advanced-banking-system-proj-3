@@ -30,7 +30,7 @@ def welcome_screen():
 def outro_screen():
     """
     """
-    outro_title = pyfiglet.figlet_format("Thank You\nFor using\n Bank\nWicksy", width = 51)
+    outro_title = pyfiglet.figlet_format("Thank You\nFor Using\n Bank\nWicksy", width = 51)
     print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}{outro_title}')
 
 # def validate_int(self):
