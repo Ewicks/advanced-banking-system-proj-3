@@ -18,17 +18,17 @@ def clear_terminal():
 
 def welcome_screen():
     """
-    
+    displays a welcome message that fills the page
     """
-
     title = pyfiglet.figlet_format("Welcome\nTo\nBank\nWicksy", width = 51)
     print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}{title}')
-
     time.sleep(5)
     clear_terminal()
 
+
 def outro_screen():
     """
+    Displays a thank you message that fills up the whole page
     """
     outro_title = pyfiglet.figlet_format("Thank You\nFor Using\n Bank\nWicksy", width = 51)
     print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}{outro_title}')
