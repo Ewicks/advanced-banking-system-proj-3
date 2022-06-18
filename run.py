@@ -18,7 +18,7 @@ def clear_terminal():
 
 def welcome_screen():
     """
-    Function which gets called when game is run
+    
     """
 
     title = pyfiglet.figlet_format("Welcome\nTo\nBank\nWicksy", width = 51)
@@ -27,6 +27,11 @@ def welcome_screen():
     time.sleep(7)
     clear_terminal()
 
+def outro_screen():
+    """
+    """
+    outro_title = pyfiglet.figlet_format("Thank You\nFor using\n Bank\nWicksy", width = 51)
+    print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}{outro_title}')
 
 # def validate_int(self):
 #     """
@@ -184,7 +189,7 @@ class crypto_portfolio(Bank):
                 print('You have not got enough money')
                 
         while True:
-            crypto_type = input('which coin would you like to invest in: ').upper()
+            crypto_type = input('which coin would you like to invest in: ').upper().strip()
             if crypto_type in crypto_List:
                 print(' is in our crypto bank')
                 break
@@ -277,7 +282,8 @@ def main_menu():
             
         elif options_choice == 7:
             clear_terminal()
-            print("Thank you for using our Bank")
+            outro_screen()
+            time.sleep(4)
             sys.exit()
         else:
             clear_terminal()
