@@ -6,6 +6,7 @@ import colorama
 import pyfiglet
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
+# import prompt_toolkit
 
 
 
@@ -136,6 +137,8 @@ class Bank(User):  # Create a bank and will inherit from the user
 
 # TODO: - displays all crypto with amount invested in each crypto currency
 
+investment_list = []
+
 class crypto_portfolio(Bank):
 
     def __init__(self, fname, lname, age, balance):
@@ -149,6 +152,8 @@ class crypto_portfolio(Bank):
         print('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
         print('$                                             $')
         print('$                                             $')
+        for i, x in enumerate(investment_list):
+            print(f'$   {i+1}  {x}                          ')
         print('$                                             $')
         print('$                                             $')
         print('$                                             $')
@@ -159,18 +164,17 @@ class crypto_portfolio(Bank):
         print('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
 
         # TODO display all crypt invested here
-    # def 
-    #     decision = input('Would you like to invest?').lower()
-    #     if decision == 'yes':
-    #         amount_to_invest()
-    #     else:
-    #         main_menu()
-    def calculate_crypto(self):
+    
+
+
+    def calculate_crypto(self, crypto_info):
+        amount = crypto_info.split('/')[0]
+        coin = crypto_info.split('/')[1]
         for x in coins:
-            if x['symbol'] == crypto_type:
+            if x['symbol'] == coin:
                 price = float((x['quote']['USD']['price']))
 
-        amount_of_crypto = amount/price
+        amount_of_crypto = int(amount)/price
         return amount_of_crypto
 
 
@@ -193,6 +197,7 @@ class crypto_portfolio(Bank):
             crypto_type = input('which coin would you like to invest in: ').upper().strip()
             if crypto_type in crypto_List:
                 print(' is in our crypto bank')
+                return f'{amount}/{crypto_type}'
                 break
             else:
                 print("This crypto is not found in our crypto bank, please choose another one")
@@ -276,8 +281,13 @@ def main_menu():
             clear_terminal()
             get_crypto_list()
             print(user_one_portfolio.display_crypto_portfolio())
-            print(user_one_portfolio.amount_to_invest(user_one_balance))
-            print(user_one_portfolio.calculate_crypto())
+            a = (user_one_portfolio.amount_to_invest(user_one_balance))
+            print(a)
+
+            investment_list.append(a)
+
+       
+            print(user_one_portfolio.calculate_crypto(a))
 
             break
             
