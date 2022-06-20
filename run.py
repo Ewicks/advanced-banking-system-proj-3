@@ -129,10 +129,7 @@ class Bank(User):  # Create a bank and will inherit from the user
             
 
 investment_list = []
-price_list = []
 crypto_List = []
-
-
 
 
 def get_price_list():
@@ -191,9 +188,10 @@ class crypto_portfolio(Bank):
             amount = int(input('How much money would you like to invest in a crypto currency: $'))
             if amount < self.balance:
                 balance = balance - amount
-                print('------------------------')
-                print('processing data......')
-                print('------------------------')
+
+                print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}------------------------')
+                print(f'{Fore.BLUE}{Style.BRIGHT}Processing Data......')
+                print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}------------------------')
                 time.sleep(2)
                 break
 
@@ -202,6 +200,11 @@ class crypto_portfolio(Bank):
                 
         while True:
             crypto_type = input('which coin would you like to invest in: ').upper().strip()
+
+            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}------------------------')
+            print(f'{Fore.BLUE}{Style.BRIGHT}Searching database for coin......')
+            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}------------------------')
+            time.sleep(2)
             if crypto_type in crypto_List:
                 print(' is in our crypto bank')
                 return f'{amount}/{crypto_type}'
@@ -210,23 +213,24 @@ class crypto_portfolio(Bank):
                 print("This crypto is not found in our crypto bank, please choose another one")
 
 
-    # def display_current_coin_values():
-    #     get_crypto_list()
-    #     get_price_list()
-    #     for x, y in zip(crypto_List, price_list):
-    #         print(f'\n{x} - {y}\n')
-    #         print('-----------------------------')
-
-
     def display_values(self):
 
         for i in range(len(crypto_List)):
             crypto_List[i] = crypto_List[i].lower()
 
         data = WordCompleter(crypto_List)
-        text = prompt("Enter crypto coin: ", completer=data).upper()
+    
+        crypto_type = prompt("Enter crypto coin: ", completer=data).upper()
 
-
+        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-------------------------------------------')
+        print(f'{Fore.BLUE}{Style.BRIGHT}Calculating live price')
+        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-------------------------------------------')
+        for x in coins:
+            if x['symbol'] == crypto_type:
+                price = float((x['quote']['USD']['price']))
+        print(f'The current cost of 1 {crypto_type} is - {price}')
+        time.sleep(1)
+        
 
 def get_balance(fname, lname):
     while True:
@@ -244,8 +248,6 @@ def get_balance(fname, lname):
             break
         else:
             print("\nEnter only numbers\n")
-
-    
 
 
 def main_menu():
@@ -302,9 +304,7 @@ def crypto_menu():
         
         if options_choice == 2:
             clear_terminal()
-            # display_current_coin_values()
             get_crypto_list()
-            # get_price_list()
             print(user_one_portfolio.display_values())
 
 
@@ -343,10 +343,6 @@ while True:
             f"Last name {lname}\n "
             f"Age: {age}\n")
 
-
-
-
-            
 
 user_one_balance = get_balance(user_one.fname, user_one.lname)
 user_one_bank = Bank(user_one.fname, user_one.lname, user_one.age, user_one_balance)
