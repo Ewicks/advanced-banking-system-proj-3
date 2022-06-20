@@ -151,24 +151,24 @@ class crypto_portfolio(Bank):
     def display_crypto_portfolio(self):
         """
         Displays a frame that contains all current
-        investments the user has made
+        investments the user has made into cryptocurrency
         """
-        print('##############################################')
-        print('###### Welcome to your Crypto Portfolio ######')
-        print('##############################################\n')
-        print('**********************************************************')
-        print('*                                                        *')
+        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}###########################################################')
+        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}######### Welcome to your Cryptocurrency Portfolio ########')
+        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}###########################################################\n')
+        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}**********************************************************')
+        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
         for i, x in enumerate(investment_list):
             print(f'*   {i+1}  {x}       *')
-        print('*                                                        *')
-        print('*                                                        *')
-        print('*                                                        *')
-        print('*                                                        *')
-        print('*                                                        *')
-        print('*                                                        *')
-        print('*                                                        *')
-        print('*                                                        *')
-        print('**********************************************************')
+        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
+        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
+        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
+        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
+        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
+        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
+        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
+        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
+        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}**********************************************************')
     
 
     def calculate_crypto(self, crypto_info):
@@ -183,7 +183,7 @@ class crypto_portfolio(Bank):
                 price = float((x['quote']['USD']['price']))
 
         amount_of_crypto = int(amount)/price
-        return f'amount: {amount_of_crypto} - crypto: {coin}'
+        return f'crypto: {coin} amount: {amount_of_crypto}'
     
 
     def amount_to_invest(self, balance):
@@ -210,9 +210,9 @@ class crypto_portfolio(Bank):
         while True:
             crypto_type = input('which coin would you like to invest in: ').upper().strip()
 
-            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}------------------------')
+            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}---------------------------------')
             print(f'{Fore.BLUE}{Style.BRIGHT}Searching database for coin......')
-            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}------------------------')
+            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}---------------------------------')
             time.sleep(2)
             if crypto_type in crypto_List:
                 print(' is in our crypto bank')
