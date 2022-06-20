@@ -219,15 +219,52 @@ class crypto_portfolio(Bank):
     #         print(f'\n{x} - {y}\n')
     #         print('-----------------------------')
 
-    def display_values(self):
-        get_crypto_list()
-        get_price_list()
+    # def display_values(self):
         
-        data = WordCompleter('sdfsdfsdf', 'sdfsdfsdfsdf', 'gggggggg')
-        print(data)
-        # f = prompt('Enter coin: ' completer=data)
+    #     data = WordCompleter(crypto_List)
+    #     print(data)
+    #     f = prompt('Enter coin: ' completer=data)
         
 
+    data = WordCompleter([
+        "alligator",
+        "ant",
+        "ape",
+        "bat",
+        "bear",
+        "beaver",
+        "bee",
+        "bison",
+        "butterfly",
+        "cat",
+        "chicken",
+        "crocodile",
+        "dinosaur",
+        "dog",
+        "dolphin",
+        "dove",
+        "duck",
+        "eagle",
+        "elephant",
+        "fish",
+        "goat",
+        "gorilla",
+        "kangaroo",
+        "leopard",
+        "lion",
+        "mouse",
+        "rabbit",
+        "rat",
+        "snake",
+        "spider",
+        "turkey",
+        "turtle",
+    ])
+
+
+    def display_values(self):
+        text = prompt("Give some animals: ", completer=data)
+        print(text)
 
 
 def get_balance(fname, lname):
@@ -305,7 +342,9 @@ def crypto_menu():
         if options_choice == 2:
             clear_terminal()
             # display_current_coin_values()
-            print(user_one_portfolio.display_values())
+            get_crypto_list()
+            get_price_list()
+            user_one_portfolio.display_values()
 
 
         if options_choice == 3:
