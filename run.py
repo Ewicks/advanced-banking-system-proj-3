@@ -127,17 +127,9 @@ class Bank(User):  # Create a bank and will inherit from the user
                 return f"Your balance is now: {round(self.balance, 2)}"
             
 
-# class crypt portfolio:
-
-# TODO: - display all crypto exchange rates in real time
-
-# TODO: - ask user how much and which crypto they want to invest in
-
-# TODO: - functions to exchange amount user wants exchanged to specific crypto
-
-# TODO: - displays all crypto with amount invested in each crypto currency
-
 investment_list = []
+price_list = []
+
 
 class crypto_portfolio(Bank):
 
@@ -162,10 +154,7 @@ class crypto_portfolio(Bank):
         print('$                                             $')
         print('$                                             $')
         print('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
-
-        # TODO display all crypt invested here
     
-
 
     def calculate_crypto(self, crypto_info):
         amount = crypto_info.split('/')[0]
@@ -175,7 +164,7 @@ class crypto_portfolio(Bank):
                 price = float((x['quote']['USD']['price']))
 
         amount_of_crypto = int(amount)/price
-        return amount_of_crypto
+        return f'You have invested {amount_of_crypto} in {coin}'
 
 
     def amount_to_invest(self, balance):
@@ -203,7 +192,6 @@ class crypto_portfolio(Bank):
                 print("This crypto is not found in our crypto bank, please choose another one")
 
 
-    # price_list = []
 
     def get_price_list(self):
         for x in coins:
@@ -212,21 +200,12 @@ class crypto_portfolio(Bank):
             price_list.append(price)
 
 
-    # - validate to see if user entered crypto which is in crypto list
-
-    # - get crpto price
-
     def display_current_coin_values():
         get_crypto_list()
         get_price_list()
         for x, y in zip(crypto_List, price_list):
             print(f'\n{x} - {y}\n')
             print('-----------------------------')
-
-    # get_crypto_price('ETH')
-
-    # def calculate_crypto(amount, crypto_type):
-
 
 
 def get_balance(fname, lname):
@@ -253,7 +232,6 @@ def main_menu():
     print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------------------')
     print(f'{Fore.BLUE}{Style.BRIGHT}--------- Welcome to our banking system --------')
     print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------------------\n')
-    print(f'{Fore.BLUE}Here are a list of what we can offer you\n')
     print(f'{Fore.BLUE}Type the number of which option you want to access\n')
     while True:
         options_choice = get_int("1) See Balance\n2) Withdraw\n3) Deposit\n4) See Total Withdraws\n5) see Total Deposits\n6) Crypto Portfolio\n7) exit\n")
@@ -278,17 +256,7 @@ def main_menu():
             print(f"There have been {user_one_bank.total_deposits} deposits.")
 
         elif options_choice == 6:
-            clear_terminal()
-            get_crypto_list()
-            print(user_one_portfolio.display_crypto_portfolio())
-            a = (user_one_portfolio.amount_to_invest(user_one_balance))
-            print(a)
-
-            investment_list.append(a)
-
-       
-            print(user_one_portfolio.calculate_crypto(a))
-
+            crypto_menu()
             break
             
         elif options_choice == 7:
@@ -331,6 +299,34 @@ while True:
             f"Last name {lname}\n "
             f"Age: {age}\n")
 
+def crypto_menu():
+    print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------------------')
+    print(f'{Fore.BLUE}{Style.BRIGHT}--- Crypto Banking system ---')
+    print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------------------\n')
+    print(f'{Fore.BLUE}Type the number of which option you want to access\n')
+    while True:
+        options_choice = get_int("1) Check Crypto Portfolio\n2) Check live crypto prices\n3) Invest in crypto\n4) Exit")
+        if options_choice == 1:
+            clear_terminal()
+            print(user_one_portfolio.display_crypto_portfolio())
+        
+        if options_choice == 2:
+            clear_terminal()
+
+        if options_choice == 3:
+            clear_terminal()
+            get_crypto_list()
+            a = (user_one_portfolio.amount_to_invest(user_one_balance))
+            print(a)
+            investment_list.append(a)
+            print(user_one_portfolio.calculate_crypto(a))
+
+        if options_choice == 4:
+            clear_terminal()
+            main_menu()
+
+
+            
 
 user_one_balance = get_balance(user_one.fname, user_one.lname)
 user_one_bank = Bank(user_one.fname, user_one.lname, user_one.age, user_one_balance)
