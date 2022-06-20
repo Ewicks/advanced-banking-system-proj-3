@@ -24,7 +24,7 @@ def welcome_screen():
     """
     title = pyfiglet.figlet_format("Welcome\nTo Bank -\nWicksy", width = 51)
     print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}{title}')
-    time.sleep(5)
+    time.sleep(1)
     clear_terminal()
 
 
@@ -158,19 +158,19 @@ class crypto_portfolio(Bank):
         print('##############################################')
         print('###### Welcome to your Crypto Portfolio ######')
         print('##############################################\n')
-        print('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
-        print('$                                             $')
-        print('$                                             $')
+        print('**********************************************************')
+        print('*                                                        *')
         for i, x in enumerate(investment_list):
-            print(f'$   {i+1}  {x}                          ')
-        print('$                                             $')
-        print('$                                             $')
-        print('$                                             $')
-        print('$                                             $')
-        print('$                                             $')
-        print('$                                             $')
-        print('$                                             $')
-        print('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$')
+            print(f'*   {i+1}  {x}       *')
+        print('*                                                        *')
+        print('*                                                        *')
+        print('*                                                        *')
+        print('*                                                        *')
+        print('*                                                        *')
+        print('*                                                        *')
+        print('*                                                        *')
+        print('*                                                        *')
+        print('**********************************************************')
     
 
     def calculate_crypto(self, crypto_info):
@@ -181,7 +181,8 @@ class crypto_portfolio(Bank):
                 price = float((x['quote']['USD']['price']))
 
         amount_of_crypto = int(amount)/price
-        return f'You have invested {amount_of_crypto} in {coin}'
+        return f'amount: {amount_of_crypto} - crypto: {coin}'
+    
 
 
     def amount_to_invest(self, balance):
@@ -209,10 +210,6 @@ class crypto_portfolio(Bank):
                 print("This crypto is not found in our crypto bank, please choose another one")
 
 
-
-   
-
-
     # def display_current_coin_values():
     #     get_crypto_list()
     #     get_price_list()
@@ -228,6 +225,7 @@ class crypto_portfolio(Bank):
 
         data = WordCompleter(crypto_List)
         text = prompt("Enter crypto coin: ", completer=data).upper()
+
 
 
 def get_balance(fname, lname):
@@ -314,9 +312,9 @@ def crypto_menu():
             clear_terminal()
             get_crypto_list()
             a = (user_one_portfolio.amount_to_invest(user_one_balance))
-            print(a)
-            investment_list.append(a)
-            print(user_one_portfolio.calculate_crypto(a))
+            values = user_one_portfolio.calculate_crypto(a)
+            investment_list.append(values)
+
 
         if options_choice == 4:
             clear_terminal()
