@@ -256,6 +256,7 @@ def main_menu():
             print(f"There have been {user_one_bank.total_deposits} deposits.")
 
         elif options_choice == 6:
+            clear_terminal()
             crypto_menu()
             break
             
