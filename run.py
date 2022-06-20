@@ -356,4 +356,4 @@ main_menu()
 
 # TODO improve welcome screen
 
-# 
+# TODO give user pound to dollar exchange option
