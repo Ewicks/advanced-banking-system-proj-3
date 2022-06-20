@@ -159,7 +159,7 @@ class crypto_portfolio(Bank):
         print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}**********************************************************')
         print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
         for i, x in enumerate(investment_list):
-            print(f'*   {i+1}  {x}       *')
+            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*   {i+1}  {x}       *')
         print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
         print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
         print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
@@ -183,7 +183,7 @@ class crypto_portfolio(Bank):
                 price = float((x['quote']['USD']['price']))
 
         amount_of_crypto = int(amount)/price
-        return f'crypto: {coin} amount: {amount_of_crypto}'
+        return f'{Fore.GREEN}{Style.BRIGHT}crypto: {coin} amount: {amount_of_crypto}'
     
 
     def amount_to_invest(self, balance):
