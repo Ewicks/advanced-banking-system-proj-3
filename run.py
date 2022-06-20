@@ -226,45 +226,11 @@ class crypto_portfolio(Bank):
     #     f = prompt('Enter coin: ' completer=data)
         
 
-    data = WordCompleter([
-        "alligator",
-        "ant",
-        "ape",
-        "bat",
-        "bear",
-        "beaver",
-        "bee",
-        "bison",
-        "butterfly",
-        "cat",
-        "chicken",
-        "crocodile",
-        "dinosaur",
-        "dog",
-        "dolphin",
-        "dove",
-        "duck",
-        "eagle",
-        "elephant",
-        "fish",
-        "goat",
-        "gorilla",
-        "kangaroo",
-        "leopard",
-        "lion",
-        "mouse",
-        "rabbit",
-        "rat",
-        "snake",
-        "spider",
-        "turkey",
-        "turtle",
-    ])
+    data = WordCompleter(crypto_List)
 
 
     def display_values(self):
-        text = prompt("Give some animals: ", completer=data)
-        print(text)
+        text = prompt("Enter crypto coin: ", completer=data)
 
 
 def get_balance(fname, lname):
