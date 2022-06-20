@@ -1,4 +1,6 @@
 import sys
+from prompt_toolkit import prompt
+from prompt_toolkit.completion import WordCompleter
 import os
 import time
 from coinmarketcap import *
@@ -6,7 +8,6 @@ import colorama
 import pyfiglet
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
-# import prompt_toolkit
 
 
 
@@ -129,6 +130,21 @@ class Bank(User):  # Create a bank and will inherit from the user
 
 investment_list = []
 price_list = []
+crypto_List = []
+
+
+
+def get_price_list():
+    for x in coins:
+        for x['symbol'] in coins:
+            price = float((x['quote']['USD']['price']))
+        price_list.append(price)
+
+
+def get_crypto_list():
+    for d in data['data']:
+        crypto_name_from_api = d['symbol']
+        crypto_List.append(crypto_name_from_api)
 
 
 class crypto_portfolio(Bank):
@@ -193,19 +209,25 @@ class crypto_portfolio(Bank):
 
 
 
-    def get_price_list(self):
-        for x in coins:
-            for x['symbol'] in coins:
-                price = float((x['quote']['USD']['price']))
-            price_list.append(price)
+   
 
 
-    def display_current_coin_values():
+    # def display_current_coin_values():
+    #     get_crypto_list()
+    #     get_price_list()
+    #     for x, y in zip(crypto_List, price_list):
+    #         print(f'\n{x} - {y}\n')
+    #         print('-----------------------------')
+
+    def display_values(self):
         get_crypto_list()
         get_price_list()
-        for x, y in zip(crypto_List, price_list):
-            print(f'\n{x} - {y}\n')
-            print('-----------------------------')
+        
+        data = WordCompleter('sdfsdfsdf', 'sdfsdfsdfsdf', 'gggggggg')
+        print(data)
+        # f = prompt('Enter coin: ' completer=data)
+        
+
 
 
 def get_balance(fname, lname):
@@ -269,13 +291,34 @@ def main_menu():
             print("Please choose a number from 1-7.")
 
 
-crypto_List = []
+def crypto_menu():
+    print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------------------')
+    print(f'{Fore.BLUE}{Style.BRIGHT}--- Crypto Banking system ---')
+    print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------------------\n')
+    print(f'{Fore.BLUE}Type the number of which option you want to access\n')
+    while True:
+        options_choice = get_int("1) Check Crypto Portfolio\n2) Check live crypto prices\n3) Invest in crypto\n4) Exit")
+        if options_choice == 1:
+            clear_terminal()
+            print(user_one_portfolio.display_crypto_portfolio())
+        
+        if options_choice == 2:
+            clear_terminal()
+            # display_current_coin_values()
+            print(user_one_portfolio.display_values())
 
 
-def get_crypto_list():
-    for d in data['data']:
-        crypto_name_from_api = d['symbol']
-        crypto_List.append(crypto_name_from_api)
+        if options_choice == 3:
+            clear_terminal()
+            get_crypto_list()
+            a = (user_one_portfolio.amount_to_invest(user_one_balance))
+            print(a)
+            investment_list.append(a)
+            print(user_one_portfolio.calculate_crypto(a))
+
+        if options_choice == 4:
+            clear_terminal()
+            main_menu()
 
 
 welcome_screen()
@@ -300,31 +343,7 @@ while True:
             f"Last name {lname}\n "
             f"Age: {age}\n")
 
-def crypto_menu():
-    print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------------------')
-    print(f'{Fore.BLUE}{Style.BRIGHT}--- Crypto Banking system ---')
-    print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------------------\n')
-    print(f'{Fore.BLUE}Type the number of which option you want to access\n')
-    while True:
-        options_choice = get_int("1) Check Crypto Portfolio\n2) Check live crypto prices\n3) Invest in crypto\n4) Exit")
-        if options_choice == 1:
-            clear_terminal()
-            print(user_one_portfolio.display_crypto_portfolio())
-        
-        if options_choice == 2:
-            clear_terminal()
 
-        if options_choice == 3:
-            clear_terminal()
-            get_crypto_list()
-            a = (user_one_portfolio.amount_to_invest(user_one_balance))
-            print(a)
-            investment_list.append(a)
-            print(user_one_portfolio.calculate_crypto(a))
-
-        if options_choice == 4:
-            clear_terminal()
-            main_menu()
 
 
             
