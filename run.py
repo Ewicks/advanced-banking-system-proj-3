@@ -10,21 +10,20 @@ from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
 
 
-
 def clear_terminal():
     """
-    This will clear terminal when called
+    This will clear the terminal 
     """
     os.system('clear')
 
 
 def welcome_screen():
     """
-    displays a welcome message that fills the page
+    Displays a welcome message that fills the page
     """
     title = pyfiglet.figlet_format("Welcome\nTo Bank -\nWicksy", width = 51)
     print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}{title}')
-    time.sleep(1)
+    time.sleep(4)
     clear_terminal()
 
 
@@ -67,7 +66,7 @@ def get_int(self):
 
 def get_str(self):
     """
-   
+
     """
 
     while True:
@@ -132,14 +131,12 @@ investment_list = []
 crypto_List = []
 
 
-def get_price_list():
-    for x in coins:
-        for x['symbol'] in coins:
-            price = float((x['quote']['USD']['price']))
-        price_list.append(price)
-
-
 def get_crypto_list():
+    """"
+    Accumulates all the cryptocrrency name's that the api can get,
+    example - Bitcoin, and stores them all in a list
+    """
+
     for d in data['data']:
         crypto_name_from_api = d['symbol']
         crypto_List.append(crypto_name_from_api)
@@ -152,6 +149,10 @@ class crypto_portfolio(Bank):
 
     
     def display_crypto_portfolio(self):
+        """
+        Displays a frame that contains all current
+        investments the user has made
+        """
         print('##############################################')
         print('###### Welcome to your Crypto Portfolio ######')
         print('##############################################\n')
@@ -171,6 +172,10 @@ class crypto_portfolio(Bank):
     
 
     def calculate_crypto(self, crypto_info):
+        """
+        Calculates the price of which cryptocurrency the user wants
+        and returns the amount of crypto he has invested in
+        """
         amount = crypto_info.split('/')[0]
         coin = crypto_info.split('/')[1]
         for x in coins:
@@ -181,9 +186,13 @@ class crypto_portfolio(Bank):
         return f'amount: {amount_of_crypto} - crypto: {coin}'
     
 
-
     def amount_to_invest(self, balance):
-
+        """
+        Ask's user how much money they would like to invest in cryptocurrency
+        and which cryptocurrency they would like to invest in.
+        This function also checks to see weather the user can afford the amount
+        of money invested by checking the users current balance
+        """
         while True:
             amount = int(input('How much money would you like to invest in a crypto currency: $'))
             if amount < self.balance:
