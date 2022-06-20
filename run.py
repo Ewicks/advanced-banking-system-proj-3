@@ -35,19 +35,19 @@ def outro_screen():
     print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}{outro_title}')
     time.sleep(4)
 
-# def validate_int(self):
-#     """
-#     Will validate is the users coin amount to ensure only contains numbers
-#     """
+def validate_int(num):
+    """
+    Will validate is the users coin amount to ensure only contains numbers
+    """
     
-#     try:
-#         amount = float(amount)
-#         print(f"Amount entered is valid")
-#         return True
+    try:
+        num = float(num)
+        return True
 
-#     except ValueError:
-#         print(f"  Amount must be a number!")
-#         return False
+    except ValueError:
+        print('\n***********************************************\n')
+        print(f"You entered: {num}, Please enter only numbers!")
+        return False
 
 
 def get_int(self):
@@ -104,6 +104,8 @@ class Bank(User):  # Create a bank and will inherit from the user
 
     def balance_info(self):
         return f"{self.fname} has a remaining balance of: £{self.balance}"
+        time.sleep(2)
+        clear_terminal()
 
     def deposit(self):
         dp = float(input(f"{self.fname.title()}, please enter how much you would like to deposit: "))
@@ -243,7 +245,7 @@ class crypto_portfolio(Bank):
 
 def get_balance(fname, lname):
     while True:
-        balance = float(input(f'{fname} {lname} please enter your inital balance: £'))
+        balance = validate_int(input(f'{Fore.BLUE}{Style.BRIGHT}{fname} {lname} please enter your inital balance: £'))
         if (balance):
             balance = round(balance, 2)
             print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-------------------------------------------')
