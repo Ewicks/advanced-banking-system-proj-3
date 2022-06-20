@@ -134,6 +134,7 @@ crypto_List = []
 
 
 
+
 def get_price_list():
     for x in coins:
         for x['symbol'] in coins:
@@ -219,18 +220,14 @@ class crypto_portfolio(Bank):
     #         print(f'\n{x} - {y}\n')
     #         print('-----------------------------')
 
-    # def display_values(self):
-        
-    #     data = WordCompleter(crypto_List)
-    #     print(data)
-    #     f = prompt('Enter coin: ' completer=data)
-        
-
-    data = WordCompleter(crypto_List)
-
 
     def display_values(self):
-        text = prompt("Enter crypto coin: ", completer=data)
+
+        for i in range(len(crypto_List)):
+            crypto_List[i] = crypto_List[i].lower()
+
+        data = WordCompleter(crypto_List)
+        text = prompt("Enter crypto coin: ", completer=data).upper()
 
 
 def get_balance(fname, lname):
@@ -309,8 +306,8 @@ def crypto_menu():
             clear_terminal()
             # display_current_coin_values()
             get_crypto_list()
-            get_price_list()
-            user_one_portfolio.display_values()
+            # get_price_list()
+            print(user_one_portfolio.display_values())
 
 
         if options_choice == 3:
