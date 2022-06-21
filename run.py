@@ -12,7 +12,7 @@ colorama.init(autoreset=True)
 
 def clear_terminal():
     """
-    This will clear the terminal 
+    This will clear the terminal
     """
     os.system('clear')
 
@@ -104,30 +104,44 @@ class Bank(User):  # Create a bank and will inherit from the user
         self.balance = balance
 
     def balance_info(self):
-        return f"{self.fname} has a remaining balance of: £{self.balance}"
+        return f"{self.fname} has a remaining balance of: £ {Fore.GREEN}{Style.BRIGHT}{self.balance}{Fore.RESET}"
         time.sleep(2)
-        clear_terminal()
 
     def deposit(self):
-        dp = float(input(f"{self.fname.title()}, please enter how much you would like to deposit: "))
-        print("Thank you for depositing...")
+        dp = float(input(f"{self.fname.title()} please enter how much you would like to deposit: "))
+        print(f'{Fore.GREEN}{Style.BRIGHT}------------------------------------')
+        print(f'{Fore.GREEN}{Style.BRIGHT}Thank you for depositing...')
+        print(f'{Fore.GREEN}{Style.BRIGHT}------------------------------------')
+        time.sleep(1)
+
         self.balance += dp
         self.total_deposits += 1
-        return f"Your balance is now: {round(self.balance, 2)}"
+        return f"Your balance is now: {Fore.GREEN}{Style.BRIGHT}{round(self.balance, 2)}{Fore.RESET}"
 
     def withdraws(self):
-        while True:
+        validation = True
+        while (validation):
             wd = float(input(
                 f"{self.fname.title()} please enter how much you "
                 f"would like to withdraw: "))
-            if self.balance < wd:
-                print("You can't withdraw that amount")
-                break
-            else:
-                print("Thank you for withdrawing...")
+            print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------')
+            print(f'{Fore.BLUE}{Style.BRIGHT}Storing Data...')
+            print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------\n')
+            time.sleep(1)
+            if self.balance > wd:
+                print(f'{Fore.GREEN}{Style.BRIGHT}----------------------------------------')
+                print(f'{Fore.GREEN}{Style.BRIGHT}Thank you for withdrawing...')
+                print(f'{Fore.GREEN}{Style.BRIGHT}----------------------------------------\n')
                 self.balance -= wd
                 self.total_withdraws += 1
-                return f"Your balance is now: {round(self.balance, 2)}"
+                return f'Your balance is now: {round(self.balance, 2)}'
+                clear_terminal()
+                validation = False
+            else:
+                print(f"{Fore.RED}{Style.BRIGHT}You can't withdraw that amount\n")
+             
+            
+                
             
 
 investment_list = []
@@ -258,24 +272,17 @@ class crypto_portfolio(Bank):
                 print(f"{Fore.RED}{Style.BRIGHT} Invalid cryptocurrency")
                 print('-----------------------------------\n')
 
-           
-          
-      
-        
-               
-
-        
 
 def get_balance(fname, lname):
     while True:
-        balance = validate_int(input(f'{Fore.BLUE}{Style.BRIGHT}{fname} {lname} please enter your inital balance: £'))
+        balance = validate_int(input(f'{fname} {lname} please enter your inital balance: £'))
         if (balance):
             balance = round(balance, 2)
             print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-------------------------------------------')
             print(f'{Fore.BLUE}{Style.BRIGHT}Storing data....')
             print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-------------------------------------------')
             time.sleep(2)
-            print(f'You currently have £{balance} in your bank account\n')
+            print(f'You currently have £ {Fore.GREEN}{Style.BRIGHT}{balance}{Fore.RESET} in your bank account\n')
             time.sleep(2)
             clear_terminal()
             return balance
@@ -370,10 +377,10 @@ while True:
         age = get_int("Enter your age: ")
 
         user_details_confirmation = input(
-            f"\nType 'yes' to confirm your details\n "
-            f"First name: {fname}\n "
-            f"Last name {lname}\n "
-            f"Age: {age}\n")
+            f"\nType {Fore.GREEN}{Style.BRIGHT}'yes'{Fore.RESET} to confirm your details\n"
+            f"First name: {fname}\n"
+            f"Last name {lname}\n"
+            f"Age: {age}\n").lower().strip()
 
 
 user_one_balance = get_balance(user_one.fname, user_one.lname)
@@ -382,9 +389,6 @@ user_one_portfolio = crypto_portfolio(user_one.fname, user_one.lname, user_one.a
 
 
 main_menu()
-
-
-# TODO find a way to validate numbers with dec places an use on Bank class
 
 # TODO improve welcome screen
 
