@@ -235,8 +235,8 @@ class crypto_portfolio(Bank):
         crypto_type = ''
         while crypto_type not in data2:
 
-            crypto_type = prompt("Enter crypto coin: ", completer=data).upper()
-                
+            crypto_type = prompt("Enter crypto coin: ", completer=data)
+
             if crypto_type in data2:
                 return crypto_type
                 print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-------------------------------------------')
@@ -337,14 +337,12 @@ def crypto_menu():
             get_crypto_list()
             print(user_one_portfolio.display_values())
 
-
         if options_choice == 3:
             clear_terminal()
             get_crypto_list()
             a = (user_one_portfolio.amount_to_invest(user_one_balance))
             values = user_one_portfolio.calculate_crypto(a)
             investment_list.append(values)
-
 
         if options_choice == 4:
             clear_terminal()
