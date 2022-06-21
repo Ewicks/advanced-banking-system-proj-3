@@ -226,34 +226,37 @@ class crypto_portfolio(Bank):
 
 
     def display_values(self):
-        crypto_type = ''
         for i in range(len(crypto_List)):
             crypto_List[i] = crypto_List[i].lower()
 
         data2 = (crypto_List)
 
         data = WordCompleter(crypto_List)
+        crypto_type = ''
+        while crypto_type not in data2:
 
-        # while crypto_type not in data2:
-        crypto_type = prompt("Enter crypto coin: ", completer=data).upper()
+            crypto_type = prompt("Enter crypto coin: ", completer=data).upper()
+                
+            if crypto_type in data2:
+                return crypto_type
+                print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-------------------------------------------')
+                print(f'{Fore.BLUE}{Style.BRIGHT}Calculating live price')
+                print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-------------------------------------------')
+                for x in coins:
+                    if x['symbol'] == crypto_type:
+                        price = float((x['quote']['USD']['price']))
+                    print(f'The current cost of 1 {crypto_type} is - {price}')
+                    time.sleep(1)
+                break
 
-        #     if crypto_type in data2:
-        #         break
-        #     else:
-                # print('-----------------------------------')
-                # print(f"{Fore.RED}{Style.BRIGHT} Invalid cryptocurrency")
-                # print('-----------------------------------\n')
+            else:
+                print('-----------------------------------')
+                print(f"{Fore.RED}{Style.BRIGHT} Invalid cryptocurrency")
+                print('-----------------------------------\n')
 
            
           
-        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-------------------------------------------')
-        print(f'{Fore.BLUE}{Style.BRIGHT}Calculating live price')
-        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-------------------------------------------')
-        for x in coins:
-            if x['symbol'] == crypto_type:
-                price = float((x['quote']['USD']['price']))
-        print(f'The current cost of 1 {crypto_type} is - {price}')
-        time.sleep(1)
+      
         
                
 
