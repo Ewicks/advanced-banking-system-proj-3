@@ -226,6 +226,7 @@ class crypto_portfolio(Bank):
 
 
     def display_values(self):
+
         for i in range(len(crypto_List)):
             crypto_List[i] = crypto_List[i].lower()
 
@@ -238,15 +239,18 @@ class crypto_portfolio(Bank):
             crypto_type = prompt("Enter crypto coin: ", completer=data)
 
             if crypto_type in data2:
-                return crypto_type
                 print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-------------------------------------------')
                 print(f'{Fore.BLUE}{Style.BRIGHT}Calculating live price')
                 print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-------------------------------------------')
+                time.sleep(1)
+                price = 0
+                crypto_type = crypto_type.upper()
                 for x in coins:
                     if x['symbol'] == crypto_type:
                         price = float((x['quote']['USD']['price']))
-                    print(f'The current cost of 1 {crypto_type} is - {price}')
-                    time.sleep(1)
+                        print(price)
+                print(f'The current cost of 1 {crypto_type} = ${price}')
+                time.sleep(1)
                 break
 
             else:
