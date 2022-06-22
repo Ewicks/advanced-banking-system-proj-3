@@ -35,6 +35,15 @@ def outro_screen():
     print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}{outro_title}')
     time.sleep(4)
 
+def validate_num(num):
+    try:
+        num = int(num)
+       
+    except ValueError:
+        print('\n***********************************************\n')
+        print(f"You entered: {num}, Please enter only numbers!")
+        return False
+
 def validate_int(num):
     """
     Will validate is the users coin amount to ensure only contains numbers
@@ -104,11 +113,11 @@ class Bank(User):  # Create a bank and will inherit from the user
         self.balance = balance
 
     def balance_info(self):
-        return f"{self.fname} has a remaining balance of: £ {Fore.GREEN}{Style.BRIGHT}{self.balance}{Fore.RESET}"
+        return f"{self.fname} has a remaining balance of: $ {Fore.GREEN}{Style.BRIGHT}{self.balance}{Fore.RESET}"
         time.sleep(2)
 
     def deposit(self):
-        dp = float(input(f"{self.fname.title()} please enter how much you would like to deposit: "))
+        dp = float(input(f"{self.fname.title()} please enter how much you would like to deposit: $"))
         print(f'{Fore.GREEN}{Style.BRIGHT}------------------------------------')
         print(f'{Fore.GREEN}{Style.BRIGHT}Thank you for depositing...')
         print(f'{Fore.GREEN}{Style.BRIGHT}------------------------------------')
@@ -123,7 +132,7 @@ class Bank(User):  # Create a bank and will inherit from the user
         while (validation):
             wd = float(input(
                 f"{self.fname.title()} please enter how much you "
-                f"would like to withdraw: "))
+                f"would like to withdraw: $"))
             print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------')
             print(f'{Fore.BLUE}{Style.BRIGHT}Storing Data...')
             print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------\n')
@@ -134,7 +143,7 @@ class Bank(User):  # Create a bank and will inherit from the user
                 print(f'{Fore.GREEN}{Style.BRIGHT}----------------------------------------\n')
                 self.balance -= wd
                 self.total_withdraws += 1
-                return f'Your balance is now: {round(self.balance, 2)}'
+                return f'Your balance is now: $ {round(self.balance, 2)}'
                 clear_terminal()
                 validation = False
             else:
@@ -211,7 +220,7 @@ class crypto_portfolio(Bank):
         of money invested by checking the users current balance
         """
         while True:
-            amount = int(input('How much money would you like to invest in a crypto currency: $'))
+            amount = validate_num((input('How much money would you like to invest in a crypto currency: $')))
             if amount < self.balance:
                 balance = balance - amount
 
@@ -312,7 +321,7 @@ def main_menu():
 
         elif options_choice == 4:
             clear_terminal()
-            print(f"There have been {user_one_bank.total_withdraws} withdraws.")
+            print(f"There have been {Fore.BLUE}{Style.BRIGHT}{user_one_bank.total_withdraws}{Fore.RESET} withdrawals.\n")
 
         elif options_choice == 5:
             clear_terminal()
@@ -334,7 +343,7 @@ def main_menu():
 
 def crypto_menu():
     print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------------------')
-    print(f'{Fore.BLUE}{Style.BRIGHT}--- Crypto Banking system ---')
+    print(f'{Fore.BLUE}{Style.BRIGHT}------------ Crypto Banking system -------------')
     print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------------------\n')
     print(f'{Fore.BLUE}Type the number of which option you want to access\n')
     while True:
