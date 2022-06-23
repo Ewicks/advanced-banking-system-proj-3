@@ -55,8 +55,10 @@ def validate_int(num):
         return True
 
     except ValueError:
-        print('\n***********************************************\n')
+        print(f'{Fore.RED}{Style.BRIGHT}\n--------------------------------------------\n')
         print(f"You entered: {num}, Please enter only numbers!")
+        print(f'{Fore.RED}{Style.BRIGHT}\n--------------------------------------------\n')
+
         return False
 
 
@@ -104,16 +106,16 @@ class User:
 
 
 class Bank(User):  # Create a bank and will inherit from the user
-    # Bank has its own attributes of total deposits and total withdraws
+    # Bank has its own attributes of total deposits and total withdrawals
     total_deposits = 0
-    total_withdraws = 0
+    total_withdrawals = 0
 
     def __init__(self, fname, lname, age, balance):
         super().__init__(fname, lname, age)  # Gets attributes from User class
         self.balance = balance
 
     def balance_info(self):
-        return f"{self.fname} has a remaining balance of: $ {Fore.GREEN}{Style.BRIGHT}{self.balance}{Fore.RESET}"
+        return f"{self.fname} has a remaining balance of: $ {Fore.GREEN}{Style.BRIGHT}{self.balance}{Fore.RESET}\n"
         time.sleep(2)
 
     def deposit(self):
@@ -125,9 +127,9 @@ class Bank(User):  # Create a bank and will inherit from the user
 
         self.balance += dp
         self.total_deposits += 1
-        return f"Your balance is now: {Fore.GREEN}{Style.BRIGHT}{round(self.balance, 2)}{Fore.RESET}"
+        return f"Your balance is now: {Fore.GREEN}{Style.BRIGHT}{round(self.balance, 2)}{Fore.RESET}\n"
 
-    def withdraws(self):
+    def withdrawals(self):
         validation = True
         while (validation):
             wd = float(input(
@@ -142,10 +144,11 @@ class Bank(User):  # Create a bank and will inherit from the user
                 print(f'{Fore.GREEN}{Style.BRIGHT}Thank you for withdrawing...')
                 print(f'{Fore.GREEN}{Style.BRIGHT}----------------------------------------\n')
                 self.balance -= wd
-                self.total_withdraws += 1
-                return f'Your balance is now: $ {round(self.balance, 2)}'
+                self.total_withdrawals += 1
+                return f'Your balance is now: $ {round(self.balance, 3)}\n'
                 clear_terminal()
                 validation = False
+                break
             else:
                 print(f"{Fore.RED}{Style.BRIGHT}You can't withdraw that amount\n")
              
@@ -313,7 +316,7 @@ def main_menu():
 
         elif options_choice == 2:
             clear_terminal()
-            print(user_one_bank.withdraws())
+            print(user_one_bank.withdrawals())
 
         elif options_choice == 3:
             clear_terminal()
