@@ -12,18 +12,30 @@ I have created a banking system, which allows a user to withdraw or deposit moen
 
 ## Features
 
-## Landing Page
+### Landing Page
 
 - I have created a large and bold message using the figlet module in python for a unique style of font. 
 
 ![Landing Page](documentation/images/landing-page.png)
 
-## Main Menu
+### Main Menu
 
-- 
+- This is the main menu, which has a variety of options the user can choose from, for example: withdraw, deposit and check their balance.
 
 ![main menu](documentation/images/main-menu.png)
 
+### Crypto Menu
+
+- This menu shows the actions that the user can take with their cryptocurrency, for example: viewing life cryptocurrency prices, investing USD into cryptocurreny of their choice and viewing there investments in the investment portfolio.
+
+![crypto menu](documentation/images/crypto-menu-img.png)
+
+
+## Flow Charts
+
+![main menu flowchart](documentation/flowcharts/main-flowchart.png)
+
+![crypto menu flowchart](documentation/flowcharts/crypto-flowchart.png)
 
 ## Technologies used
 

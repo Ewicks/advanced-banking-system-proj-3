@@ -38,6 +38,7 @@ def outro_screen():
 def validate_num(num):
     try:
         num = int(num)
+        
        
     except ValueError:
         print('\n***********************************************\n')
@@ -48,19 +49,21 @@ def validate_int(num):
     """
     Will validate is the users coin amount to ensure only contains numbers
     """
-    while True:
-        try:
-            num = float(num)
-            return num
-            
-    
-        except ValueError:
-            print(f'{Fore.RED}{Style.BRIGHT}\n--------------------------------------------\n')
-            print(f"You entered: {num}, Please enter only numbers!")
-            print(f'{Fore.RED}{Style.BRIGHT}\n--------------------------------------------\n')
-            return True
+  
+    try:
+        num = float(num)
+        return num
+        return True
+        
+        
+    except ValueError:
+        print(f'{Fore.RED}{Style.BRIGHT}\n--------------------------------------------\n')
+        print(f"You entered: {num}, Please enter only numbers!")
+        print(f'{Fore.RED}{Style.BRIGHT}\n--------------------------------------------\n')
+        return False
+        
 
- 
+    
 
 
 def get_int(self):
@@ -131,28 +134,30 @@ class Bank(User):  # Create a bank and will inherit from the user
         return f"Your balance is now: {Fore.GREEN}{Style.BRIGHT}{round(self.balance, 2)}{Fore.RESET}\n"
 
     def withdrawals(self):
-        # validation = True
-        # while (validation):
-        wd = validate_int(input(
-            f"{self.fname.title()} please enter how much you "
-            f"would like to withdraw: $"))
-        print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------')
-        print(f'{Fore.BLUE}{Style.BRIGHT}Storing Data...')
-        print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------\n')
-        time.sleep(1)
-
-        if self.balance > wd:
-            print(f'{Fore.GREEN}{Style.BRIGHT}----------------------------------------')
-            print(f'{Fore.GREEN}{Style.BRIGHT}Thank you for withdrawing...')
-            print(f'{Fore.GREEN}{Style.BRIGHT}----------------------------------------\n')
-            self.balance -= wd
-            self.total_withdrawals += 1
-            return f'Your balance is now: $ {round(self.balance, 3)}\n'
-            clear_terminal()
+        validation = True
+        while (validation):
+                wd = validate_int(input(
+                    f"{self.fname.title()} please enter how much you "
+                    f"would like to withdraw: $"))
+                print(wd)
+                print(validate_int(wd))
+                print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------')
+                print(f'{Fore.BLUE}{Style.BRIGHT}Storing Data...')
+                print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------\n')
+                time.sleep(1) 
+                
+            
+            # if self.balance > wd:
+            #     print(f'{Fore.GREEN}{Style.BRIGHT}----------------------------------------')
+            #     print(f'{Fore.GREEN}{Style.BRIGHT}Thank you for withdrawing...')
+            #     print(f'{Fore.GREEN}{Style.BRIGHT}----------------------------------------\n')
+            #     self.balance -= wd
+            #     self.total_withdrawals += 1
+            #     return f'Your balance is now: $ {round(self.balance, 3)}\n'
+            #     clear_terminal()
           
-          
-        else:
-            print(f"{Fore.RED}{Style.BRIGHT}You can't withdraw that amount\n")
+            # else:
+            #     print(f"{Fore.RED}{Style.BRIGHT}You can't withdraw that amount\n")
              
             
                 
