@@ -76,6 +76,9 @@ I have created a banking system, which allows a user to withdraw or deposit moen
 12. Requests
 - This libary allows me to sent HTTP requests without having to manually add query strings to the URLs.
 
+## Testing
+
+Click [here](TESTING.md) to access the testing page
 
 ### Data Models
 
