@@ -64,22 +64,23 @@ I have created a banking system, which allows a user to withdraw or deposit moen
 8. CoinMarketCap
 - Used the CoinMarketCap API to retrieve live cryptocurrency coin data
 
-9. TinyPNG
-
-10. PEP8
+9. PEP8
 - Used to validate python code
 
-11. Colorama
+10. Colorama
 - This Libary is used to color text when the code is run in the terminal.
 
-12. PromptToolkit
+11. PromptToolkit
 - I used this libary to create a autotype automation function, which gives the user a drop-down menu of what coins they can select based on what they have started typing. 
 
-13. Requests
+12. Requests
 - This libary allows me to sent HTTP requests without having to manually add query strings to the URLs.
 
 
+### Data Models
 
-data models
+## Class
 
-class images
+- I have made User a class and Bank a class, this allows me to have the option to create multiple users with each one having their own sperate bank account. Also I can pass the users attributes into their bank account, therefore allowing me to input their names alongside their bank information for every user. 
+
+![Class](documentation/images/classes-img.png)
