@@ -77,7 +77,10 @@ def get_int(self):
             return int(input(self))
 
         except ValueError:
-            print(f"\nNot an integer, try again\n")
+            print(f'{Fore.RED}{Style.BRIGHT}------------------------------')
+            print(f"{Fore.RED}{Style.BRIGHT}\nNot an integer, try again\n")
+            print(f'{Fore.RED}{Style.BRIGHT}------------------------------')
+
 
 
 def get_str(self):
@@ -90,7 +93,10 @@ def get_str(self):
         if (a.isalpha()):
             return a
         else:
-            print(f'\nYou entered "{a}" Enter only letters, no special characters\n')
+            print(f'{Fore.RED}{Style.BRIGHT}---------------------------------------------------------------')
+            print(f'{Fore.RED}{Style.BRIGHT}\nYou entered "{a}" Enter only letters, no special characters\n')
+            print(f'{Fore.RED}{Style.BRIGHT}---------------------------------------------------------------')
+
 
         # try:
 
