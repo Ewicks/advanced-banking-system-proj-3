@@ -35,15 +35,16 @@ def outro_screen():
     print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}{outro_title}')
     time.sleep(4)
 
+
 def validate_num(num):
     try:
         num = int(num)
-        
        
     except ValueError:
         print('\n***********************************************\n')
         print(f"You entered: {num}, Please enter only numbers!")
         return False
+
 
 def validate_int(num):
     """
@@ -55,15 +56,11 @@ def validate_int(num):
         return num
         return True
         
-        
     except ValueError:
         print(f'{Fore.RED}{Style.BRIGHT}\n--------------------------------------------\n')
         print(f"You entered: {num}, Please enter only numbers!")
         print(f'{Fore.RED}{Style.BRIGHT}\n--------------------------------------------\n')
         return False
-        
-
-    
 
 
 def get_int(self):
@@ -82,10 +79,11 @@ def get_int(self):
             print(f'{Fore.RED}{Style.BRIGHT}------------------------------')
 
 
-
 def get_str(self):
     """
-
+    This functions checks to see if the user has entered only letters,
+    if this is not the case, then it will throw a error statement and ask
+    the user to type in input again until the user returns a valid input
     """
 
     while True:
@@ -93,15 +91,9 @@ def get_str(self):
         if (a.isalpha()):
             return a
         else:
-            print(f'{Fore.RED}{Style.BRIGHT}---------------------------------------------------------------')
+            print(f'{Fore.RED}{Style.BRIGHT}----------------------------------------------------------')
             print(f'{Fore.RED}{Style.BRIGHT}\nYou entered "{a}" Enter only letters, no special characters\n')
-            print(f'{Fore.RED}{Style.BRIGHT}---------------------------------------------------------------')
-
-
-        # try:
-
-        # except ValueError:
-        #     print(f"\n {self} , try again\n")
+            print(f'{Fore.RED}{Style.BRIGHT}----------------------------------------------------------')
 
 
 class User:
