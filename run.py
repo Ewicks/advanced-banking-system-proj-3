@@ -121,28 +121,24 @@ class Bank(User):  # Create a bank and will inherit from the user
         time.sleep(2)
 
     def deposit(self):
-        dp = float(input(f"{self.fname.title()} please enter how much you would like to deposit: $"))
-        print(f'{Fore.GREEN}{Style.BRIGHT}------------------------------------')
-        print(f'{Fore.GREEN}{Style.BRIGHT}Thank you for depositing...')
-        print(f'{Fore.GREEN}{Style.BRIGHT}------------------------------------')
-        time.sleep(1)
+        while True:
+            dp = validate_int(input(f"{self.fname.title()} please enter how much you would like to deposit: $"))
+            if (dp):
+                print(f'{Fore.GREEN}{Style.BRIGHT}------------------------------------')
+                print(f'{Fore.GREEN}{Style.BRIGHT}Thank you for depositing...')
+                print(f'{Fore.GREEN}{Style.BRIGHT}------------------------------------')
+                time.sleep(1)
 
-        self.balance += dp
-        self.total_deposits += 1
-        return f"Your balance is now: {Fore.GREEN}{Style.BRIGHT}{round(self.balance, 2)}{Fore.RESET}\n"
+                self.balance += dp
+                self.total_deposits += 1
+                return f"Your balance is now: {Fore.GREEN}{Style.BRIGHT}{round(self.balance, 2)}{Fore.RESET}\n"
 
     def withdrawals(self):
-        validation = True
-        while (validation):
+        while True:
             wd = validate_int(input(
                 f"{self.fname.title()} please enter how much you "
                 f"would like to withdraw: $"))
-            print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------')
-            print(f'{Fore.BLUE}{Style.BRIGHT}Storing Data...')
-            print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------\n')
-            time.sleep(1)
-                   
-            if self.balance > wd:
+            if self.balance > wd and (wd):
                 print(f'{Fore.GREEN}{Style.BRIGHT}----------------------------------------')
                 print(f'{Fore.GREEN}{Style.BRIGHT}Thank you for withdrawing...')
                 print(f'{Fore.GREEN}{Style.BRIGHT}----------------------------------------\n')
@@ -150,10 +146,8 @@ class Bank(User):  # Create a bank and will inherit from the user
                 self.total_withdrawals += 1
                 return f'Your balance is now: $ {round(self.balance, 3)}\n'
                 clear_terminal()
-          
-            else:
-                print(f"{Fore.RED}{Style.BRIGHT}You can't withdraw that amount\n")
-             
+                break
+
 
 investment_list = []
 crypto_List = []
@@ -222,21 +216,28 @@ class crypto_portfolio(Bank):
         of money invested by checking the users current balance
         """
         while True:
-            amount = validate_num((input('How much money would you like to invest in a crypto currency: $')))
-            if amount < self.balance:
+            amount = validate_int(input('How much money would you like to invest in a crypto currency: $'))
+            if amount < self.balance and (amount):
                 balance = balance - amount
 
-                print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}------------------------')
+                print(f'\n{Fore.LIGHTBLUE_EX}{Style.BRIGHT}------------------------')
                 print(f'{Fore.BLUE}{Style.BRIGHT}Processing Data......')
-                print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}------------------------')
+                print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}------------------------\n')
                 time.sleep(2)
                 break
-
             else:
-                print('You have not got enough money')
+                print(f'{Fore.RED}{Style.BRIGHT}---------------------------------------------------')
+                print(f'Your balance is {balance}, do not invest more thank your balance')
+                print(f'{Fore.RED}{Style.BRIGHT}-------------------------------------------------\n')
                 
         while True:
-            crypto_type = input('which coin would you like to invest in: ').upper().strip()
+
+            for i in range(len(crypto_List)):
+                crypto_List[i] = crypto_List[i].lower()
+                
+            data = WordCompleter(crypto_List)
+            crypto_type = ''
+            crypto_type = prompt("Enter cryptocurrency to invest in: ", completer=data)
 
             print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}---------------------------------')
             print(f'{Fore.BLUE}{Style.BRIGHT}Searching database for coin......')
@@ -261,7 +262,7 @@ class crypto_portfolio(Bank):
         crypto_type = ''
         while crypto_type not in data2:
 
-            crypto_type = prompt("Enter crypto coin: ", completer=data)
+            crypto_type = prompt("Enter cryptocurrency: ", completer=data)
 
             if crypto_type in data2:
                 print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-------------------------------------------')
@@ -273,11 +274,10 @@ class crypto_portfolio(Bank):
                 for x in coins:
                     if x['symbol'] == crypto_type:
                         price = float((x['quote']['USD']['price']))
-                        print(price)
-                print(f'The current cost of 1 {crypto_type} = ${price}')
+                print(f'\nThe current cost of 1 {crypto_type} = $ {Fore.GREEN}{Style.BRIGHT}{price}{Fore.RESET}\n')
                 time.sleep(1)
                 break
-
+                
             else:
                 print('-----------------------------------')
                 print(f"{Fore.RED}{Style.BRIGHT} Invalid cryptocurrency")
@@ -298,8 +298,6 @@ def get_balance(fname, lname):
             clear_terminal()
             return balance
             break
-        else:
-            print("\nEnter only numbers\n")
 
 
 def main_menu():
