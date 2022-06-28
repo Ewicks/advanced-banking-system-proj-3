@@ -87,3 +87,16 @@ Click [here](TESTING.md) to access the testing page
 - I have made User a class and Bank a class, this allows me to have the option to create multiple users with each one having their own sperate bank account. Also I can pass the users attributes into their bank account, therefore allowing me to input their names alongside their bank information for every user. 
 
 ![Class](documentation/images/classes-img.png)
+
+## Deployment
+
+
+## Credits
+
+- I have used this tutorial to guide me through the project, while expanding on it with my own ideas. [You Tube video](https://www.youtube.com/watch?v=BRssQPHZMrc)
+
+- I used this video to help me fetch data using an api, as this was something I was not familiar with. [Api video](https://www.youtube.com/watch?v=ECJjjZ_iijc&t=1s)
+
+- Mentor (Tim Nelson)
+
+- Tutor support
