@@ -198,14 +198,15 @@ class crypto_portfolio(Bank):
         Calculates the price of which cryptocurrency the user wants
         and returns the amount of crypto he has invested in
         """
+        price = 0
         amount = crypto_info.split('/')[0]
         coin = crypto_info.split('/')[1]
         for x in coins:
             if x['symbol'] == coin:
-                price = float((x['quote']['USD']['price']))
+                price = float(x['quote']['USD']['price'])
 
         amount_of_crypto = int(amount)/price
-        return f'{Fore.GREEN}{Style.BRIGHT}crypto: {coin} amount: {amount_of_crypto}'
+        return f'crypto: {Fore.GREEN}{Style.BRIGHT}{coin}{Fore.RESET} amount: {Fore.GREEN}{Style.BRIGHT}{amount_of_crypto}{Fore.RESET}'
     
 
     def amount_to_invest(self, balance):
@@ -234,14 +235,14 @@ class crypto_portfolio(Bank):
 
             for i in range(len(crypto_List)):
                 crypto_List[i] = crypto_List[i].lower()
-                
+
             data = WordCompleter(crypto_List)
             crypto_type = ''
             crypto_type = prompt("Enter cryptocurrency to invest in: ", completer=data)
 
-            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}---------------------------------')
+            print(f'\n{Fore.LIGHTBLUE_EX}{Style.BRIGHT}---------------------------------')
             print(f'{Fore.BLUE}{Style.BRIGHT}Searching database for coin......')
-            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}---------------------------------')
+            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}---------------------------------\n')
             time.sleep(2)
             if crypto_type in crypto_List:
                 print(' is in our crypto bank')
