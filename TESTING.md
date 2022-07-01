@@ -3,6 +3,8 @@
 - add validation screen shots here
 
 
+- screenshot user input validation too
+
 
 ## Bugs
 

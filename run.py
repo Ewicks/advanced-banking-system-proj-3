@@ -39,7 +39,7 @@ def outro_screen():
 def validate_num(num):
     try:
         num = int(num)
-       
+
     except ValueError:
         print('\n***********************************************\n')
         print(f"You entered: {num}, Please enter only numbers!")
@@ -50,12 +50,12 @@ def validate_int(num):
     """
     Will validate is the users coin amount to ensure only contains numbers
     """
-  
+
     try:
         num = float(num)
         return num
         return True
-        
+
     except ValueError:
         print(f'{Fore.RED}{Style.BRIGHT}\n--------------------------------------------\n')
         print(f"You entered: {num}, Please enter only numbers!")
@@ -122,16 +122,26 @@ class Bank(User):  # Create a bank and will inherit from the user
 
     def deposit(self):
         while True:
-            dp = validate_int(input(f"{self.fname.title()} please enter how much you would like to deposit: $"))
+            dp = validate_int(
+                input(
+                    f"{self.fname.title()} "
+                    f"please enter how much you would like to deposit: $"))
             if (dp):
-                print(f'{Fore.GREEN}{Style.BRIGHT}------------------------------------')
+                print(
+                    f'{Fore.GREEN}{Style.BRIGHT}'
+                    f'------------------------------------')
                 print(f'{Fore.GREEN}{Style.BRIGHT}Thank you for depositing...')
-                print(f'{Fore.GREEN}{Style.BRIGHT}------------------------------------')
+                print(
+                    f'{Fore.GREEN}{Style.BRIGHT}'
+                    f'------------------------------------')
                 time.sleep(1)
 
                 self.balance += dp
                 self.total_deposits += 1
-                return f"Your balance is now: {Fore.GREEN}{Style.BRIGHT}{round(self.balance, 2)}{Fore.RESET}\n"
+                return (
+                    f"Your balance is now: "
+                    f"{Fore.GREEN}{Style.BRIGHT}"
+                    f"{round(self.balance, 2)}{Fore.RESET}\n")
 
     def withdrawals(self):
         while True:
@@ -180,8 +190,8 @@ class crypto_portfolio(Bank):
         print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}###########################################################\n')
         print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}**********************************************************')
         print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
-        for i, x in enumerate(investment_list):
-            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*   {i+1}  {x}       *')
+        for i, x in zip(range(5), investment_list):
+            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*  {i+1}  {x}')
         print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
         print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
         print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
@@ -202,10 +212,9 @@ class crypto_portfolio(Bank):
         amount = crypto_info.split('/')[0]
         coin = crypto_info.split('/')[1]
         for x in coins:
-            if x['symbol'] == coin:
+            if x['symbol'].lower() == coin.lower():
                 price = float(x['quote']['USD']['price'])
-
-        amount_of_crypto = int(amount)/price
+        amount_of_crypto = float(amount)/price
         return f'crypto: {Fore.GREEN}{Style.BRIGHT}{coin}{Fore.RESET} amount: {Fore.GREEN}{Style.BRIGHT}{amount_of_crypto}{Fore.RESET}'
     
 
@@ -218,7 +227,7 @@ class crypto_portfolio(Bank):
         """
         while True:
             amount = validate_int(input('How much money would you like to invest in a crypto currency: $'))
-            if amount < self.balance and (amount):
+            if amount <= self.balance and (amount):
                 balance = balance - amount
 
                 print(f'\n{Fore.LIGHTBLUE_EX}{Style.BRIGHT}------------------------')
@@ -352,7 +361,7 @@ def crypto_menu():
         if options_choice == 1:
             clear_terminal()
             print(user_one_portfolio.display_crypto_portfolio())
-        
+
         if options_choice == 2:
             clear_terminal()
             get_crypto_list()

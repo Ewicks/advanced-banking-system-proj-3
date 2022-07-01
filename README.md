@@ -37,6 +37,8 @@ I have created a banking system, which allows a user to withdraw or deposit moen
 
 ### Languages, Frameworks, Libaries and Programs Used
 
+- add links to all 
+
 1. Python 
 
 2. Git
@@ -86,7 +88,12 @@ Click [here](TESTING.md) to access the testing page
 
 ## Deployment
 
+- add steps how to get coin api key
 
+- how to set up env.py
+- see [env_sample](env_sample.py) for an example.
+
+- 
 ## Credits
 
 - I have used this tutorial to guide me through the project, while expanding on it with my own ideas. [You Tube video](https://www.youtube.com/watch?v=BRssQPHZMrc)
