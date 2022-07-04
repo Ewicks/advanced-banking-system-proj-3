@@ -237,9 +237,6 @@ class crypto_portfolio(Bank):
         print('\n')
         for i, x in zip(range(5), investment_list):
             print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}  {i+1}  {x}')
-            print(i)
-            print(x)
-        print(investment_list)
         print(
             f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} '
             f'                                                       ')
@@ -280,9 +277,7 @@ class crypto_portfolio(Bank):
             if x['symbol'].lower() == coin.lower():
                 price = float(x['quote']['USD']['price'])
         amount_of_crypto = float(amount)/price
-        return print(
-            f'crypto: {Fore.GREEN}{Style.BRIGHT}{coin}{Fore.RESET} '
-            f'amount: {Fore.GREEN}{Style.BRIGHT}{amount_of_crypto}\n')
+        return f'crypto: {Fore.GREEN}{Style.BRIGHT}{coin}{Fore.RESET} amount: {Fore.GREEN}{Style.BRIGHT}{amount_of_crypto}\n'
 
     def amount_to_invest(self, balance):
         """
@@ -344,7 +339,7 @@ class crypto_portfolio(Bank):
             else:
                 print(
                     'This crypto is not found in our crypto bank, '
-                    'please choose another one')
+                    'please choose another one\n')
 
     def display_values(self):
         """
@@ -494,7 +489,7 @@ def crypto_menu():
     while True:
         options_choice = get_int(
             '1) Check Crypto Portfolio\n2) Check live crypto prices\n3) '
-            'Invest in crypto\n4) Exit')
+            'Invest in crypto\n4) Exit\n')
         if options_choice == 1:
             clear_terminal()
             user_one_portfolio.display_crypto_portfolio()
