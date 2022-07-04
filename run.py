@@ -39,7 +39,7 @@ def outro_screen():
 
 def validate_int(num):
     """
-    Will validate is the users coin amount to ensure only contains numbers
+    Will validate the users input to ensure only numbers are entered
     """
 
     try:
@@ -98,6 +98,9 @@ def get_str(self):
 
 
 class User:
+    """
+    User class initializes it's attrbiutes
+    """
     def __init__(self, fname, lname, age):
         self.fname = fname
         self.lname = lname
@@ -108,8 +111,12 @@ class User:
         f"to our advanced banking system"
 
 
-class Bank(User):  # Create a bank and will inherit from the user
-    # Bank has its own attributes of total deposits and total withdrawals
+class Bank(User):
+    """
+    This bank class will inherit attributes from the User class.
+    Bank has its own attributes of total deposits, total withdrawals
+    and balance
+    """
     total_deposits = 0
     total_withdrawals = 0
 
@@ -118,12 +125,19 @@ class Bank(User):  # Create a bank and will inherit from the user
         self.balance = balance
 
     def balance_info(self):
+        """
+        Display's the users current balance
+        """
         return print(
             f"{self.fname} has a remaining balance of: $ "
             f"{Fore.GREEN}{Style.BRIGHT}{self.balance}{Fore.RESET}\n")
         time.sleep(2)
 
     def deposit(self):
+        """
+        Ask's the user how much money they would like to deposit and updates
+        the current balance and total deposits accordingly
+        """
         while True:
             dp = validate_int(
                 input(
@@ -147,6 +161,10 @@ class Bank(User):  # Create a bank and will inherit from the user
                     f"{round(self.balance, 2)}{Fore.RESET}\n")
 
     def withdrawals(self):
+        """
+        Ask's the user how much they want to withdraw and
+        updates the current balance and total withdrawals
+        """
         while True:
             wd = validate_int(input(
                 f"{self.fname.title()} please enter how much you "
@@ -192,15 +210,17 @@ def get_crypto_list():
 
 
 class crypto_portfolio(Bank):
-
+    """
+    This class gets attributes from User class and bank class
+    """
     def __init__(self, fname, lname, age, balance):
-        # Gets attributes from User class
         super().__init__(fname, lname, age, balance)
 
     def display_crypto_portfolio(self):
         """
         Displays a frame that contains all current
-        investments the user has made into cryptocurrency
+        investments the user has made into cryptocurrency, with
+        a maximum of 5 investments in total
         """
         print(
             f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}##'
@@ -325,7 +345,12 @@ class crypto_portfolio(Bank):
                     'please choose another one')
 
     def display_values(self):
-
+        """
+        When user enter's a cryptocurrency they wish to check the value of,
+        the code checks to see if the cryptocurrency is 1 of the 5000
+        currenciesin our cryptocurrency bank.
+        Then the live value is displayed.
+        """
         for i in range(len(crypto_List)):
             crypto_List[i] = crypto_List[i].lower()
 
@@ -364,6 +389,10 @@ class crypto_portfolio(Bank):
 
 
 def get_balance(fname, lname):
+    """
+    This is a global function that ask's the user to enter they inital balance,
+    so they can have a starting balance within our system
+    """
     while True:
         balance = validate_int(input(
             f'{fname} {lname} please enter your inital balance: £'))
@@ -387,6 +416,10 @@ def get_balance(fname, lname):
 
 
 def main_menu():
+    """
+    This is the main menu, which gives 7 options to choose from regarding
+    general use of the banking system
+    """
     print(
         f'{Fore.BLUE}{Style.BRIGHT}------'
         f'------------------------------------------')
@@ -442,6 +475,10 @@ def main_menu():
 
 
 def crypto_menu():
+    """
+    This menu display's all the actions that can be taken in regards to
+    the Users cryptocurrency endeavour's
+    """
     print(
         f'{Fore.BLUE}{Style.BRIGHT}----'
         f'--------------------------------------------')
@@ -477,6 +514,10 @@ def crypto_menu():
             main_menu()
 
 
+"""
+This section get's general infomation about the user which will
+be used throughout throughout the program
+"""
 welcome_screen()
 user_details_confirmation = ''
 while True:
