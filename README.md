@@ -132,17 +132,34 @@ For Heroku deployment, follow these steps to connect your GitHub repository to t
 ​
 The frontend terminal should now be connected and deployed to Heroku.
 
-- add steps how to get coin api key
+### How To Get Api Key 
 
-- how to set up env.py
-- see [env_sample](env_sample.py) for an example.
+1. Vist this [website](https://coinmarketcap.com/api/)
 
-- 
+2. select 'get your api-key'
+
+3. Fill in details to create your account
+
+4. Under the api-key heading select copy api key.
+
+5. Paste this key into your env.py file, instructions on how to set this is up is below
+
+### How To Set Up env.py File
+
+- I have created a sample file [env_sample](env_sample.py), all you have to do is add in your own api key.
+
+1. Copy and paste the file into your project
+
+2. Paste api-key where is say's 'insert your api key here'
+
+3. Save file
+
+
 ## Credits
 
 - I have used this tutorial to guide me through the project, while expanding on it with my own ideas. [You Tube video](https://www.youtube.com/watch?v=BRssQPHZMrc)
 
-- I used this video to help me fetch data using an api, as this was something I was not familiar with. [Api video](https://www.youtube.com/watch?v=ECJjjZ_iijc&t=1s)
+- I used this video to help me fetch data using an api, because this was something I was not familiar with. [Api video](https://www.youtube.com/watch?v=ECJjjZ_iijc&t=1s)
 
 - Mentor (Tim Nelson)
 
