@@ -1,8 +1,18 @@
 # Testing 
 
-- add validation screen shots here
+## Code Validation
 
+- PEP8 Online Check
 
+- Results for run.py
+![main page](documentation/images/code-validation-main.png)
+
+- Results for coinmarketcap.py
+![coinmarketcap page](documentation/images/code-validation-coinmarketcap.png)
+
+[W3Cvalidator](https://validator.w3.org/) HTML validator
+
+![html validator](documentation/images/html-validator.png)
 - screenshot user input validation too
 
 

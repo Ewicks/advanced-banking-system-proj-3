@@ -21,7 +21,7 @@ def welcome_screen():
     """
     Displays a welcome message that fills the page
     """
-    title = pyfiglet.figlet_format("Welcome\nTo Bank -\nWicksy", width = 51)
+    title = pyfiglet.figlet_format("Welcome\nTo Bank -\nWicksy", width=51)
     print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}{title}')
     time.sleep(4)
     clear_terminal()
@@ -31,7 +31,8 @@ def outro_screen():
     """
     Displays a thank you message that fills up the whole page
     """
-    outro_title = pyfiglet.figlet_format("Thank You\nFor Using\n Bank\nWicksy", width = 51)
+    outro_title = pyfiglet.figlet_format(
+        "Thank You\nFor Using\n Bank\nWicksy", width=51)
     print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}{outro_title}')
     time.sleep(4)
 
@@ -57,9 +58,13 @@ def validate_int(num):
         return True
 
     except ValueError:
-        print(f'{Fore.RED}{Style.BRIGHT}\n--------------------------------------------\n')
+        print(
+            f'{Fore.RED}{Style.BRIGHT}\n------------------'
+            f'--------------------------\n')
         print(f"You entered: {num}, Please enter only numbers!")
-        print(f'{Fore.RED}{Style.BRIGHT}\n--------------------------------------------\n')
+        print(
+            f'{Fore.RED}{Style.BRIGHT}\n------------------'
+            f'--------------------------\n')
         return False
 
 
@@ -91,9 +96,15 @@ def get_str(self):
         if (a.isalpha()):
             return a
         else:
-            print(f'{Fore.RED}{Style.BRIGHT}----------------------------------------------------------')
-            print(f'{Fore.RED}{Style.BRIGHT}\nYou entered "{a}" Enter only letters, no special characters\n')
-            print(f'{Fore.RED}{Style.BRIGHT}----------------------------------------------------------')
+            print(
+                f'{Fore.RED}{Style.BRIGHT}------------------'
+                f'----------------------------------------')
+            print(
+                f'{Fore.RED}{Style.BRIGHT}\nYou entered "{a}" '
+                f'Enter only letters, no special characters\n')
+            print(
+                f'{Fore.RED}{Style.BRIGHT}--------------------'
+                f'--------------------------------------')
 
 
 class User:
@@ -117,7 +128,9 @@ class Bank(User):  # Create a bank and will inherit from the user
         self.balance = balance
 
     def balance_info(self):
-        return f"{self.fname} has a remaining balance of: $ {Fore.GREEN}{Style.BRIGHT}{self.balance}{Fore.RESET}\n"
+        return print(
+            f"{self.fname} has a remaining balance of: $ "
+            f"{Fore.GREEN}{Style.BRIGHT}{self.balance}{Fore.RESET}\n")
         time.sleep(2)
 
     def deposit(self):
@@ -149,9 +162,15 @@ class Bank(User):  # Create a bank and will inherit from the user
                 f"{self.fname.title()} please enter how much you "
                 f"would like to withdraw: $"))
             if self.balance > wd and (wd):
-                print(f'{Fore.GREEN}{Style.BRIGHT}----------------------------------------')
-                print(f'{Fore.GREEN}{Style.BRIGHT}Thank you for withdrawing...')
-                print(f'{Fore.GREEN}{Style.BRIGHT}----------------------------------------\n')
+                print(
+                    f'{Fore.GREEN}{Style.BRIGHT}----------------------'
+                    f'------------------')
+                print(
+                    f'{Fore.GREEN}{Style.BRIGHT}Thank you for '
+                    f'withdrawing...')
+                print(
+                    f'{Fore.GREEN}{Style.BRIGHT}---------------'
+                    f'-------------------------\n')
                 self.balance -= wd
                 self.total_withdrawals += 1
                 return f'Your balance is now: $ {round(self.balance, 3)}\n'
@@ -177,31 +196,56 @@ def get_crypto_list():
 class crypto_portfolio(Bank):
 
     def __init__(self, fname, lname, age, balance):
-        super().__init__(fname, lname, age, balance)  # Gets attributes from User class
+        # Gets attributes from User class
+        super().__init__(fname, lname, age, balance)
 
-    
     def display_crypto_portfolio(self):
         """
         Displays a frame that contains all current
         investments the user has made into cryptocurrency
         """
-        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}###########################################################')
-        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}######### Welcome to your Cryptocurrency Portfolio ########')
-        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}###########################################################\n')
-        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}**********************************************************')
-        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
+        print(
+            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}##'
+            f'#########################################################')
+        print(
+            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}##'
+            f'####### Welcome to your Cryptocurrency Portfolio ########')
+        print(
+            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}##'
+            f'#########################################################\n')
+        print(
+            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}***'
+            f'*******************************************************')
+        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}                   ')
         for i, x in zip(range(5), investment_list):
-            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*  {i+1}  {x}')
-        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
-        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
-        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
-        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
-        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
-        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
-        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
-        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*                                                        *')
-        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}**********************************************************')
-    
+            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}  {i+1}  {x}')
+        print(
+            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} '
+            f'                                                       ')
+        print(
+            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} '
+            f'                                                       ')
+        print(
+            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} '
+            f'                                                       ')
+        print(
+            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} '
+            f'                                                       ')
+        print(
+            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} '
+            f'                                                       ')
+        print(
+            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} '
+            f'                                                       ')
+        print(
+            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} '
+            f'                                                       ')
+        print(
+            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} '
+            f'                                                       ')
+        print(
+            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*'
+            f'*********************************************************')
 
     def calculate_crypto(self, crypto_info):
         """
@@ -215,8 +259,9 @@ class crypto_portfolio(Bank):
             if x['symbol'].lower() == coin.lower():
                 price = float(x['quote']['USD']['price'])
         amount_of_crypto = float(amount)/price
-        return f'crypto: {Fore.GREEN}{Style.BRIGHT}{coin}{Fore.RESET} amount: {Fore.GREEN}{Style.BRIGHT}{amount_of_crypto}{Fore.RESET}'
-    
+        return print(
+            f'crypto: {Fore.GREEN}{Style.BRIGHT}{coin}{Fore.RESET} '
+            f'amount: {Fore.GREEN}{Style.BRIGHT}{amount_of_crypto}\n')
 
     def amount_to_invest(self, balance):
         """
@@ -226,20 +271,32 @@ class crypto_portfolio(Bank):
         of money invested by checking the users current balance
         """
         while True:
-            amount = validate_int(input('How much money would you like to invest in a crypto currency: $'))
+            amount = validate_int(input(
+                'How much money would you like to '
+                f'invest in a crypto currency: $'))
             if amount <= self.balance and (amount):
                 balance = balance - amount
 
-                print(f'\n{Fore.LIGHTBLUE_EX}{Style.BRIGHT}------------------------')
+                print(
+                    f'\n{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-'
+                    f'-----------------------')
                 print(f'{Fore.BLUE}{Style.BRIGHT}Processing Data......')
-                print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}------------------------\n')
+                print(
+                    f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}--'
+                    f'----------------------\n')
                 time.sleep(2)
                 break
             else:
-                print(f'{Fore.RED}{Style.BRIGHT}---------------------------------------------------')
-                print(f'Your balance is {balance}, do not invest more thank your balance')
-                print(f'{Fore.RED}{Style.BRIGHT}-------------------------------------------------\n')
-                
+                print(
+                    f'{Fore.RED}{Style.BRIGHT}-'
+                    f'--------------------------------------------------')
+                print(
+                    f'Your balance is {balance}, do '
+                    f'not invest more thank your balance')
+                print(
+                    f'{Fore.RED}{Style.BRIGHT}----'
+                    f'---------------------------------------------\n')
+
         while True:
 
             for i in range(len(crypto_List)):
@@ -247,19 +304,27 @@ class crypto_portfolio(Bank):
 
             data = WordCompleter(crypto_List)
             crypto_type = ''
-            crypto_type = prompt("Enter cryptocurrency to invest in: ", completer=data)
+            crypto_type = prompt(
+                "Enter cryptocurrency to invest in: ", completer=data)
 
-            print(f'\n{Fore.LIGHTBLUE_EX}{Style.BRIGHT}---------------------------------')
-            print(f'{Fore.BLUE}{Style.BRIGHT}Searching database for coin......')
-            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}---------------------------------\n')
+            print(
+                f'\n{Fore.LIGHTBLUE_EX}{Style.BRIGHT}--'
+                f'-------------------------------')
+            print(
+                f'{Fore.BLUE}{Style.BRIGHT}Searching '
+                f'database for coin......')
+            print(
+                f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}--'
+                f'-------------------------------\n')
             time.sleep(2)
             if crypto_type in crypto_List:
-                print(' is in our crypto bank')
+                print('cryptocurrency found in bank...\n')
                 return f'{amount}/{crypto_type}'
                 break
             else:
-                print("This crypto is not found in our crypto bank, please choose another one")
-
+                print(
+                    'This crypto is not found in our crypto bank, '
+                    'please choose another one')
 
     def display_values(self):
 
@@ -275,19 +340,25 @@ class crypto_portfolio(Bank):
             crypto_type = prompt("Enter cryptocurrency: ", completer=data)
 
             if crypto_type in data2:
-                print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-------------------------------------------')
+                print(
+                    f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}--'
+                    f'-----------------------------------------')
                 print(f'{Fore.BLUE}{Style.BRIGHT}Calculating live price')
-                print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-------------------------------------------')
+                print(
+                    f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-'
+                    f'------------------------------------------')
                 time.sleep(1)
                 price = 0
                 crypto_type = crypto_type.upper()
                 for x in coins:
                     if x['symbol'] == crypto_type:
                         price = float((x['quote']['USD']['price']))
-                print(f'\nThe current cost of 1 {crypto_type} = $ {Fore.GREEN}{Style.BRIGHT}{price}{Fore.RESET}\n')
+                print(
+                    f'\nThe current cost of 1 {crypto_type} = $ '
+                    f'{Fore.GREEN}{Style.BRIGHT}{price}{Fore.RESET}\n')
                 time.sleep(1)
                 break
-                
+
             else:
                 print('-----------------------------------')
                 print(f"{Fore.RED}{Style.BRIGHT} Invalid cryptocurrency")
@@ -296,14 +367,21 @@ class crypto_portfolio(Bank):
 
 def get_balance(fname, lname):
     while True:
-        balance = validate_int(input(f'{fname} {lname} please enter your inital balance: £'))
+        balance = validate_int(input(
+            f'{fname} {lname} please enter your inital balance: £'))
         if (balance):
             balance = round(balance, 2)
-            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-------------------------------------------')
+            print(
+                f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}--'
+                f'-----------------------------------------')
             print(f'{Fore.BLUE}{Style.BRIGHT}Storing data....')
-            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}-------------------------------------------')
+            print(
+                f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}--'
+                f'-----------------------------------------')
             time.sleep(2)
-            print(f'You currently have £ {Fore.GREEN}{Style.BRIGHT}{balance}{Fore.RESET} in your bank account\n')
+            print(
+                f'You currently have £ {Fore.GREEN}{Style.BRIGHT}'
+                f'{balance}{Fore.RESET} in your bank account\n')
             time.sleep(2)
             clear_terminal()
             return balance
@@ -311,12 +389,21 @@ def get_balance(fname, lname):
 
 
 def main_menu():
-    print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------------------')
-    print(f'{Fore.BLUE}{Style.BRIGHT}--------- Welcome to our banking system --------')
-    print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------------------\n')
+    print(
+        f'{Fore.BLUE}{Style.BRIGHT}------'
+        f'------------------------------------------')
+    print(
+        f'{Fore.BLUE}{Style.BRIGHT}------'
+        f'--- Welcome to our banking system --------')
+    print(
+        f'{Fore.BLUE}{Style.BRIGHT}------'
+        f'------------------------------------------\n')
     print(f'{Fore.BLUE}Type the number of which option you want to access\n')
     while True:
-        options_choice = get_int("1) See Balance\n2) Withdraw\n3) Deposit\n4) See Total Withdraws\n5) see Total Deposits\n6) Crypto Portfolio\n7) exit\n")
+        options_choice = get_int(
+            '1) See Balance\n2) Withdraw\n3) Deposit\n4) '
+            'See Total Withdraws\n5) see Total Deposits\n6) '
+            'Crypto Portfolio\n7) exit\n')
         if options_choice == 1:
             clear_terminal()
             print(user_one_bank.balance_info())
@@ -331,17 +418,19 @@ def main_menu():
 
         elif options_choice == 4:
             clear_terminal()
-            print(f"There have been {Fore.BLUE}{Style.BRIGHT}{user_one_bank.total_withdraws}{Fore.RESET} withdrawals.\n")
+            print(
+                f'There have been {Fore.BLUE}{Style.BRIGHT}'
+                f'{user_one_bank.total_withdraws}{Fore.RESET} withdrawals.\n')
 
         elif options_choice == 5:
             clear_terminal()
-            print(f"There have been {user_one_bank.total_deposits} deposits.")
+            print(f'There have been {user_one_bank.total_deposits} deposits.')
 
         elif options_choice == 6:
             clear_terminal()
             crypto_menu()
             break
-            
+
         elif options_choice == 7:
             clear_terminal()
             outro_screen()
@@ -352,12 +441,20 @@ def main_menu():
 
 
 def crypto_menu():
-    print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------------------')
-    print(f'{Fore.BLUE}{Style.BRIGHT}------------ Crypto Banking system -------------')
-    print(f'{Fore.BLUE}{Style.BRIGHT}------------------------------------------------\n')
+    print(
+        f'{Fore.BLUE}{Style.BRIGHT}----'
+        f'--------------------------------------------')
+    print(
+        f'{Fore.BLUE}{Style.BRIGHT}----'
+        f'-------- Crypto Banking system -------------')
+    print(
+        f'{Fore.BLUE}{Style.BRIGHT}---'
+        f'---------------------------------------------\n')
     print(f'{Fore.BLUE}Type the number of which option you want to access\n')
     while True:
-        options_choice = get_int("1) Check Crypto Portfolio\n2) Check live crypto prices\n3) Invest in crypto\n4) Exit")
+        options_choice = get_int(
+            '1) Check Crypto Portfolio\n2) Check live crypto prices\n3) '
+            'Invest in crypto\n4) Exit')
         if options_choice == 1:
             clear_terminal()
             print(user_one_portfolio.display_crypto_portfolio())
@@ -388,27 +485,28 @@ while True:
         clear_terminal()
         break
     else:
-        print(f"{Fore.BLUE}{Style.BRIGHT}First we need to get a few important details from you.\n")
-        fname = get_str("Enter your first name: ")
+        print(
+            f'{Fore.BLUE}{Style.BRIGHT}First we need to get '
+            f'a few important details from you.\n')
+        fname = get_str('Enter your first name: ')
         print('\n')
-        lname = get_str("Enter your last name: ")
+        lname = get_str('Enter your last name: ')
         print('\n')
-        age = get_int("Enter your age: ")
+        age = get_int('Enter your age: ')
 
         user_details_confirmation = input(
-            f"\nType {Fore.GREEN}{Style.BRIGHT}'yes'{Fore.RESET} to confirm your details\n"
-            f"First name: {fname}\n"
-            f"Last name {lname}\n"
-            f"Age: {age}\n").lower().strip()
+            f"\nType {Fore.GREEN}{Style.BRIGHT}'yes'"
+            f"{Fore.RESET} to confirm your details\n"
+            f'First name: {fname}\n'
+            f'Last name {lname}\n'
+            f'Age: {age}\n').lower().strip()
 
 
 user_one_balance = get_balance(user_one.fname, user_one.lname)
-user_one_bank = Bank(user_one.fname, user_one.lname, user_one.age, user_one_balance)
-user_one_portfolio = crypto_portfolio(user_one.fname, user_one.lname, user_one.age, user_one_balance)
+user_one_bank = Bank(
+    user_one.fname, user_one.lname, user_one.age, user_one_balance)
+user_one_portfolio = crypto_portfolio(
+    user_one.fname, user_one.lname, user_one.age, user_one_balance)
 
 
 main_menu()
-
-# TODO improve welcome screen
-
-# TODO give user pound to dollar exchange option
