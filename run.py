@@ -191,7 +191,7 @@ class Bank(User):
                 print(f'You cannot withdraw that amount')
                 print(
                     f'{Fore.RED}{Style.BRIGHT}---'
-                    f'----------------------------/n')
+                    f'----------------------------\n')
 
 
 investment_list = []
@@ -234,9 +234,12 @@ class crypto_portfolio(Bank):
         print(
             f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}***'
             f'*******************************************************')
-        print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}                   ')
+        print('\n')
         for i, x in zip(range(5), investment_list):
             print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}  {i+1}  {x}')
+            print(i)
+            print(x)
+        print(investment_list)
         print(
             f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} '
             f'                                                       ')
@@ -263,7 +266,7 @@ class crypto_portfolio(Bank):
             f'                                                       ')
         print(
             f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*'
-            f'*********************************************************')
+            f'*********************************************************\n')
 
     def calculate_crypto(self, crypto_info):
         """
@@ -307,13 +310,13 @@ class crypto_portfolio(Bank):
             else:
                 print(
                     f'{Fore.RED}{Style.BRIGHT}-'
-                    f'--------------------------------------------------')
+                    f'-------------------------------------------------------')
                 print(
                     f'Your balance is {balance}, do '
                     f'not invest more thank your balance')
                 print(
-                    f'{Fore.RED}{Style.BRIGHT}----'
-                    f'---------------------------------------------\n')
+                    f'{Fore.RED}{Style.BRIGHT}---'
+                    f'-----------------------------------------------------\n')
 
         while True:
 
@@ -336,7 +339,6 @@ class crypto_portfolio(Bank):
                 f'-------------------------------\n')
             time.sleep(2)
             if crypto_type in crypto_List:
-                print('cryptocurrency found in bank...\n')
                 return f'{amount}/{crypto_type}'
                 break
             else:
@@ -437,15 +439,15 @@ def main_menu():
             'Crypto Portfolio\n7) exit\n')
         if options_choice == 1:
             clear_terminal()
-            print(user_one_bank.balance_info())
+            user_one_bank.balance_info()
 
         elif options_choice == 2:
             clear_terminal()
-            print(user_one_bank.withdrawals())
+            user_one_bank.withdrawals()
 
         elif options_choice == 3:
             clear_terminal()
-            print(user_one_bank.deposit())
+            user_one_bank.deposit()
 
         elif options_choice == 4:
             clear_terminal()
@@ -495,12 +497,11 @@ def crypto_menu():
             'Invest in crypto\n4) Exit')
         if options_choice == 1:
             clear_terminal()
-            print(user_one_portfolio.display_crypto_portfolio())
+            user_one_portfolio.display_crypto_portfolio()
 
         if options_choice == 2:
             clear_terminal()
             get_crypto_list()
-            print(user_one_portfolio.display_values())
 
         if options_choice == 3:
             clear_terminal()
