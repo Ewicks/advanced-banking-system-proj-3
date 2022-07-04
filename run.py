@@ -37,16 +37,6 @@ def outro_screen():
     time.sleep(4)
 
 
-def validate_num(num):
-    try:
-        num = int(num)
-
-    except ValueError:
-        print('\n***********************************************\n')
-        print(f"You entered: {num}, Please enter only numbers!")
-        return False
-
-
 def validate_int(num):
     """
     Will validate is the users coin amount to ensure only contains numbers

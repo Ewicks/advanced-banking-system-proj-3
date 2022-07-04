@@ -10,10 +10,16 @@
 - Results for coinmarketcap.py
 ![coinmarketcap page](documentation/images/code-validation-coinmarketcap.png)
 
-[W3Cvalidator](https://validator.w3.org/) HTML validator
+- [W3Cvalidator](https://validator.w3.org/) HTML validator
 
 ![html validator](documentation/images/html-validator.png)
-- screenshot user input validation too
+
+- User input validation
+![validating floats](documentation/images/validate-float.png)
+
+![validating integers](documentation/images/validate-int.png)
+
+![validating strings](documentation/images/validate-string.png)
 
 
 ## Bugs
