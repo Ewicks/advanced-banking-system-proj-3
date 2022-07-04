@@ -157,6 +157,8 @@ The frontend terminal should now be connected and deployed to Heroku.
 
 ## Credits
 
+- [coinmarketcap](https://coinmarketcap.com/) for coin data
+
 - I have used this tutorial to guide me through the project, while expanding on it with my own ideas. [You Tube video](https://www.youtube.com/watch?v=BRssQPHZMrc)
 
 - I used this video to help me fetch data using an api, because this was something I was not familiar with. [Api video](https://www.youtube.com/watch?v=ECJjjZ_iijc&t=1s)

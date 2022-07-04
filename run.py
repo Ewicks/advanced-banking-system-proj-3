@@ -410,11 +410,14 @@ def main_menu():
             clear_terminal()
             print(
                 f'There have been {Fore.BLUE}{Style.BRIGHT}'
-                f'{user_one_bank.total_withdraws}{Fore.RESET} withdrawals.\n')
+                f'{user_one_bank.total_withdrawals}{Fore.RESET} '
+                f'withdrawals.\n')
 
         elif options_choice == 5:
             clear_terminal()
-            print(f'There have been {user_one_bank.total_deposits} deposits.')
+            print(
+                f'There have been {Fore.BLUE}{Style.BRIGHT}'
+                f'{user_one_bank.total_deposits}{Fore.RESET} deposits.\n')
 
         elif options_choice == 6:
             clear_terminal()
