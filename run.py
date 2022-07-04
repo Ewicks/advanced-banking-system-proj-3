@@ -128,10 +128,11 @@ class Bank(User):
         """
         Display's the users current balance
         """
-        return print(
+        print(
             f"{self.fname} has a remaining balance of: $ "
             f"{Fore.GREEN}{Style.BRIGHT}{self.balance}{Fore.RESET}\n")
         time.sleep(2)
+        clear_terminal()
 
     def deposit(self):
         """
@@ -151,14 +152,17 @@ class Bank(User):
                 print(
                     f'{Fore.GREEN}{Style.BRIGHT}'
                     f'------------------------------------')
-                time.sleep(1)
+                time.sleep(2)
 
                 self.balance += dp
                 self.total_deposits += 1
-                return (
-                    f"Your balance is now: "
+                print(
+                    f"\nYour balance is now: "
                     f"{Fore.GREEN}{Style.BRIGHT}"
                     f"{round(self.balance, 2)}{Fore.RESET}\n")
+                time.sleep(2)
+                clear_terminal()
+                break
 
     def withdrawals(self):
         """
@@ -179,9 +183,13 @@ class Bank(User):
                 print(
                     f'{Fore.GREEN}{Style.BRIGHT}---------------'
                     f'-------------------------\n')
+                time.sleep(2)
                 self.balance -= wd
                 self.total_withdrawals += 1
-                return f'Your balance is now: $ {round(self.balance, 3)}\n'
+                print(
+                    f'Your balance is now: $ {Fore.GREEN}{Style.BRIGHT}'
+                    f'{round(self.balance, 3)}\n')
+                time.sleep(2)
                 clear_terminal()
                 break
             else:
@@ -233,37 +241,21 @@ class crypto_portfolio(Bank):
             f'#########################################################\n')
         print(
             f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}***'
-            f'*******************************************************')
-        print('\n')
+            f'*******************************************************\n')
         for i, x in zip(range(5), investment_list):
-            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}  {i+1}  {x}')
+            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}  {i+1}{Fore.RESET}  {x}')
+
+        print('')
+        print('')
+        print('')
+        print('')
+        print('')
+        print('')
         print(
-            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} '
-            f'                                                       ')
-        print(
-            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} '
-            f'                                                       ')
-        print(
-            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} '
-            f'                                                       ')
-        print(
-            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} '
-            f'                                                       ')
-        print(
-            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} '
-            f'                                                       ')
-        print(
-            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} '
-            f'                                                       ')
-        print(
-            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} '
-            f'                                                       ')
-        print(
-            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} '
-            f'                                                       ')
-        print(
-            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}*'
+            f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}'
             f'*********************************************************\n')
+        time.sleep(3)
+        clear_terminal()
 
     def calculate_crypto(self, crypto_info):
         """
@@ -277,6 +269,11 @@ class crypto_portfolio(Bank):
             if x['symbol'].lower() == coin.lower():
                 price = float(x['quote']['USD']['price'])
         amount_of_crypto = float(amount)/price
+        print(
+            f'crypto: {Fore.GREEN}{Style.BRIGHT}{coin}{Fore.RESET} '
+            f'amount: {Fore.GREEN}{Style.BRIGHT}{amount_of_crypto}\n')
+        time.sleep(2)
+        clear_terminal()
         return f'crypto: {Fore.GREEN}{Style.BRIGHT}{coin}{Fore.RESET} amount: {Fore.GREEN}{Style.BRIGHT}{amount_of_crypto}\n'
 
     def amount_to_invest(self, balance):
@@ -376,11 +373,12 @@ class crypto_portfolio(Bank):
                 print(
                     f'\nThe current cost of 1 {crypto_type} = $ '
                     f'{Fore.GREEN}{Style.BRIGHT}{price}{Fore.RESET}\n')
-                time.sleep(1)
+                time.sleep(3)
+                clear_terminal()
                 break
 
             else:
-                print('-----------------------------------')
+                print('\n-----------------------------------')
                 print(f"{Fore.RED}{Style.BRIGHT} Invalid cryptocurrency")
                 print('-----------------------------------\n')
 
@@ -417,21 +415,24 @@ def main_menu():
     This is the main menu, which gives 7 options to choose from regarding
     general use of the banking system
     """
-    print(
-        f'{Fore.BLUE}{Style.BRIGHT}------'
-        f'------------------------------------------')
-    print(
-        f'{Fore.BLUE}{Style.BRIGHT}------'
-        f'--- Welcome to our banking system --------')
-    print(
-        f'{Fore.BLUE}{Style.BRIGHT}------'
-        f'------------------------------------------\n')
-    print(f'{Fore.BLUE}Type the number of which option you want to access\n')
     while True:
+        print(
+            f'{Fore.BLUE}{Style.BRIGHT}------'
+            f'------------------------------------------')
+        print(
+            f'{Fore.BLUE}{Style.BRIGHT}------'
+            f'--- Welcome to our banking system --------')
+        print(
+            f'{Fore.BLUE}{Style.BRIGHT}------'
+            f'------------------------------------------\n')
+        print(
+            f'{Fore.BLUE}Type the number of which option you want to access\n')
+
         options_choice = get_int(
             '1) See Balance\n2) Withdraw\n3) Deposit\n4) '
             'See Total Withdraws\n5) see Total Deposits\n6) '
             'Crypto Portfolio\n7) exit\n')
+
         if options_choice == 1:
             clear_terminal()
             user_one_bank.balance_info()
@@ -450,12 +451,16 @@ def main_menu():
                 f'There have been {Fore.BLUE}{Style.BRIGHT}'
                 f'{user_one_bank.total_withdrawals}{Fore.RESET} '
                 f'withdrawals.\n')
+            time.sleep(2)
+            clear_terminal()
 
         elif options_choice == 5:
             clear_terminal()
             print(
                 f'There have been {Fore.BLUE}{Style.BRIGHT}'
                 f'{user_one_bank.total_deposits}{Fore.RESET} deposits.\n')
+            time.sleep(2)
+            clear_terminal()
 
         elif options_choice == 6:
             clear_terminal()
@@ -476,17 +481,19 @@ def crypto_menu():
     This menu display's all the actions that can be taken in regards to
     the Users cryptocurrency endeavour's
     """
-    print(
-        f'{Fore.BLUE}{Style.BRIGHT}----'
-        f'--------------------------------------------')
-    print(
-        f'{Fore.BLUE}{Style.BRIGHT}----'
-        f'-------- Crypto Banking system -------------')
-    print(
-        f'{Fore.BLUE}{Style.BRIGHT}---'
-        f'---------------------------------------------\n')
-    print(f'{Fore.BLUE}Type the number of which option you want to access\n')
     while True:
+        print(
+            f'{Fore.BLUE}{Style.BRIGHT}----'
+            f'--------------------------------------------')
+        print(
+            f'{Fore.BLUE}{Style.BRIGHT}----'
+            f'-------- Crypto Banking system -------------')
+        print(
+            f'{Fore.BLUE}{Style.BRIGHT}---'
+            f'---------------------------------------------\n')
+        print(
+            f'{Fore.BLUE}Type the number of which option you want to access\n')
+
         options_choice = get_int(
             '1) Check Crypto Portfolio\n2) Check live crypto prices\n3) '
             'Invest in crypto\n4) Exit\n')
@@ -497,6 +504,7 @@ def crypto_menu():
         if options_choice == 2:
             clear_terminal()
             get_crypto_list()
+            user_one_portfolio.display_values()
 
         if options_choice == 3:
             clear_terminal()
