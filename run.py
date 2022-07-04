@@ -243,7 +243,7 @@ class crypto_portfolio(Bank):
             f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}***'
             f'*******************************************************\n')
         for i, x in zip(range(5), investment_list):
-            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}  {i+1}{Fore.RESET}  {x}')
+            print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} {i+1}{Fore.RESET}  {x}')
 
         print('')
         print('')
@@ -274,7 +274,7 @@ class crypto_portfolio(Bank):
             f'amount: {Fore.GREEN}{Style.BRIGHT}{amount_of_crypto}\n')
         time.sleep(2)
         clear_terminal()
-        return f'crypto: {Fore.GREEN}{Style.BRIGHT}{coin}{Fore.RESET} amount: {Fore.GREEN}{Style.BRIGHT}{amount_of_crypto}\n'
+        return f'crypto: {coin} amount: {Fore.GREEN}{amount_of_crypto}\n'
 
     def amount_to_invest(self, balance):
         """
