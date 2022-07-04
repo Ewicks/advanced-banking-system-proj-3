@@ -166,6 +166,14 @@ class Bank(User):  # Create a bank and will inherit from the user
                 return f'Your balance is now: $ {round(self.balance, 3)}\n'
                 clear_terminal()
                 break
+            else:
+                print(
+                    f'{Fore.RED}{Style.BRIGHT}--'
+                    f'-----------------------------')
+                print(f'You cannot withdraw that amount')
+                print(
+                    f'{Fore.RED}{Style.BRIGHT}---'
+                    f'----------------------------/n')
 
 
 investment_list = []
