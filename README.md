@@ -94,7 +94,7 @@ and the amount if withdrawn from the current balance, ensuring the user can affo
 - I used this library to create a auto type automation function, which gives the user a drop-down menu of what coins they can select based on what they have started typing. 
 
 12. [Requests](https://pypi.org/project/requests/)
-- This libary allows me to sent HTTP requests without having to manually add query strings to the URLs.
+- This library allows me to sent HTTP requests without having to manually add query strings to the URLs.
 
 ## Testing
 
@@ -158,7 +158,7 @@ The frontend terminal should now be connected and deployed to Heroku.
 
 1. Vist this [website](https://coinmarketcap.com/api/)
 
-2. select 'get your api-key'
+2. Select 'get your api-key'
 
 3. Fill in details to create your account
 
