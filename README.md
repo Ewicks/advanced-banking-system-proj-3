@@ -20,12 +20,32 @@ I have created a banking system, which allows a user to withdraw or deposit moen
 
 ![main menu](documentation/images/main-menu.png)
 
+### Withdraw Page
+
+- Here is the functionality for the withdrawals, the user is asked how much they want to withdraw
+and the amount if withdrawn from the current balance, ensuring the user can afford it.
+
+![withdraw page](documentation/images/withdraw-page.png)
+
+### Deposit Page
+
+- The user is asked how much they want to deposit, the current balance is then updated accordingly.
+
+![weposit page](documentation/images/deposit-page.png)
+
 ### Crypto Menu
 
 - This menu shows the actions that the user can take with their cryptocurrency, for example: viewing life cryptocurrency prices, investing USD into cryptocurreny of their choice and viewing there investments in the investment portfolio.
 
 ![crypto menu](documentation/images/crypto-menu-img.png)
 
+### Live Price Page
+
+![live price page](documentation/images/live-price-page.png)
+
+### Invest Page
+
+![invest page](documentation/images/invest-page.png)
 
 ## Flow Charts
 
@@ -36,8 +56,6 @@ I have created a banking system, which allows a user to withdraw or deposit moen
 ## Technologies used
 
 ### Languages, Frameworks, Libaries and Programs Used
-
-- add links to all 
 
 1. [Python](https://www.python.org/)
 
