@@ -1,6 +1,6 @@
 # Bank Wicksy
 
-I have created a banking system, which allows a user to withdraw or deposit moeny, while also being able to create a cryptocurrency portfolio. The user will be able to invest in whatever cryptocurrency they desire, while retriving the real time values of each cryptocurrency via an api.
+I have created a banking system, which allows a user to withdraw or deposit money, while also being able to create a cryptocurrency portfolio. The user will be able to invest in whatever cryptocurrency they desire, while retrieving the real time values of each cryptocurrency via an API.
 
 ![Responsive image](documentation/images/responsive-img.png)
 
@@ -31,19 +31,23 @@ and the amount if withdrawn from the current balance, ensuring the user can affo
 
 - The user is asked how much they want to deposit, the current balance is then updated accordingly.
 
-![weposit page](documentation/images/deposit-page.png)
+![deposit page](documentation/images/deposit-page.png)
 
 ### Crypto Menu
 
-- This menu shows the actions that the user can take with their cryptocurrency, for example: viewing life cryptocurrency prices, investing USD into cryptocurreny of their choice and viewing there investments in the investment portfolio.
+- This menu shows the actions that the user can take with their cryptocurrency, for example: viewing life cryptocurrency prices, investing USD into cryptocurrency of their choice and viewing there investments in the investment portfolio.
 
 ![crypto menu](documentation/images/crypto-menu-img.png)
 
 ### Live Price Page
 
+- The user types in a cryptocurrency that's within the 5000 to choose from, and then the live price will be fetched using an API and then displayed to the user.
+
 ![live price page](documentation/images/live-price-page.png)
 
 ### Invest Page
+
+- The user enter's the amount they want to invest, and in which cryptocurrency. This is then displayed and added to their own cryptocurrency portfolio
 
 ![invest page](documentation/images/invest-page.png)
 
@@ -55,7 +59,7 @@ and the amount if withdrawn from the current balance, ensuring the user can affo
 
 ## Technologies used
 
-### Languages, Frameworks, Libaries and Programs Used
+### Languages, Frameworks, Libraries and Programs Used
 
 1. [Python](https://www.python.org/)
 
@@ -75,7 +79,7 @@ and the amount if withdrawn from the current balance, ensuring the user can affo
 - Software that I used to create flowcharts.
 
 7. [AMIResponsive](https://ui.dev/amiresponsive)
-- I used this to generate the image at the top of the readme displaying my project in different sized devices.
+- I used this to generate the image at the top of the Readme displaying my project in different sized devices.
 
 8. [CoinMarketCap](https://coinmarketcap.com/)
 - Used the CoinMarketCap API to retrieve live cryptocurrency coin data
@@ -87,7 +91,7 @@ and the amount if withdrawn from the current balance, ensuring the user can affo
 - This Libary is used to color text when the code is run in the terminal.
 
 11. [PromptToolkit](https://python-prompt-toolkit.readthedocs.io/en/master/)
-- I used this libary to create a autotype automation function, which gives the user a drop-down menu of what coins they can select based on what they have started typing. 
+- I used this library to create a auto type automation function, which gives the user a drop-down menu of what coins they can select based on what they have started typing. 
 
 12. [Requests](https://pypi.org/project/requests/)
 - This libary allows me to sent HTTP requests without having to manually add query strings to the URLs.
