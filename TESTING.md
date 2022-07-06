@@ -26,7 +26,7 @@
 
 - One challenge I faced was passing two variables from one function into another in the same class.
 To solve this is I returned the two variables in the below function I wanted to pass into calculate_crypto().
-I combined both variables in a string with '/' inbetween, which will make it easy for me to sperate the variables once they have been passed into the calculate_crypto() function.
+I combined both variables in a string with '/' in between, which will make it easy for me to sperate the variables once they have been passed into the calculate_crypto() function.
 This allows me to have 1 parameter instead of two in calculate_crypto(), which reduces the amount of overall code.
 
 - part of amount_to_invest() below:
@@ -42,7 +42,7 @@ if crypto_type in crypto_List:
 values = user_one_portfolio.calculate_crypto(a)
 ```
 
-- From here I used the split method to seperate the varaibles into their original state. See this in the below image.
+- From here I used the split method to separate the variables into their original state. See this in the below image.
 
 ```python
 def calculate_crypto(self, crypto_info):
@@ -80,7 +80,7 @@ options_choice = get_int(
             user_one_portfolio.display_crypto_portfolio()
 ```
 
-- I needed to extract the cryptocurrency abbreiviated names from the data the API fetched. As seen below
+- I needed to extract the cryptocurrency abbreviated names from the data the API fetched. As seen below
 
 ![data](documentation/images/data.png)
 
@@ -89,7 +89,7 @@ options_choice = get_int(
 ```python
 def get_crypto_list():
     """"
-    Accumulates all the cryptocrrencies that the api can get,
+    Accumulates all the cryptocurrencies that the api can get,
     example - Bitcoin, and stores them all in a list
     """
 

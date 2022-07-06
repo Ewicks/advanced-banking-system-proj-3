@@ -8,7 +8,7 @@ I have created a banking system, which allows a user to withdraw or deposit mone
 
 ## Features
 
-- One of the features that's included is live coin data from coinmarketcap's website. I have pulled their top 5000 cryptocurrencies from there page, allowing the user to choose from a wide range of cryptocurrencies. I usede an API to fetch this data, so the user can get reliable information to make it the user expearience as realistic as possible.
+- One of the features that's included is live coin data from coinmarketcap's website. I have pulled their top 5000 cryptocurrencies from there page, allowing the user to choose from a wide range of cryptocurrencies. I usede an API to fetch this data, so the user can get reliable information to make it the user experience as realistic as possible.
 
 ### Landing Page
 
@@ -49,7 +49,7 @@ and the amount if withdrawn from the current balance, ensuring the user can affo
 
 ### Invest Page
 
-- The user enter's the amount they want to invest, and in which cryptocurrency. This is then displayed and added to their own cryptocurrency portfolio
+- The user enters the amount they want to invest, and in which cryptocurrency. This is then displayed and added to their own cryptocurrency portfolio
 
 ![invest page](documentation/images/invest-page.png)
 
@@ -71,7 +71,7 @@ and the amount if withdrawn from the current balance, ensuring the user can affo
 3. [GitHub](https://github.com/)
 - GitHub is used to store coding projects.
 
-4. [Os Libary](https://docs.python.org/3/library/os.html)
+4. [Os Library](https://docs.python.org/3/library/os.html)
 - Used to clear the terminal
 
 5. [Heroku](https://www.heroku.com/)
@@ -90,7 +90,7 @@ and the amount if withdrawn from the current balance, ensuring the user can affo
 - Used to validate python code
 
 10. [Colorama](https://pypi.org/project/colorama/)
-- This Libary is used to color text when the code is run in the terminal.
+- This Library is used to color text when the code is run in the terminal.
 
 11. [PromptToolkit](https://python-prompt-toolkit.readthedocs.io/en/master/)
 - I used this library to create a auto type automation function, which gives the user a drop-down menu of what coins they can select based on what they have started typing. 
@@ -170,11 +170,11 @@ The frontend terminal should now be connected and deployed to Heroku.
 
 ### How To Set Up env.py File
 
-- I have created a sample file [env_sample](env_sample.py), all you have to do is add in your own api key.
+- I have created a sample file [env_sample](env_sample.py), all you have to do is add in your own API key.
 
 1. Copy and paste the file into your project
 
-2. Paste api-key where is say's 'insert your api key here'
+2. Paste api-key where is say's 'insert your API key here'
 
 3. Save file
 

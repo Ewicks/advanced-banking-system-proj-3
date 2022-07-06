@@ -208,7 +208,7 @@ crypto_List = []
 
 def get_crypto_list():
     """"
-    Accumulates all the cryptocrrencies that the api can get,
+    Accumulates all the cryptocurrencies that the api can get,
     example - Bitcoin, and stores them all in a list
     """
 
