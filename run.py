@@ -241,20 +241,18 @@ class crypto_portfolio(Bank):
             f'#########################################################\n')
         print(
             f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}***'
-            f'*******************************************************\n')
+            f'********************************************************\n')
         for i, x in zip(range(5), investment_list):
             print(f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT} {i+1}{Fore.RESET}  {x}')
 
         print('')
         print('')
-        print('')
-        print('')
-        print('')
+        print(f'{Fore.RED}note: only your first 5 investments are shown')
         print('')
         print(
             f'{Fore.LIGHTBLUE_EX}{Style.BRIGHT}'
-            f'*********************************************************\n')
-        time.sleep(3)
+            f'***********************************************************\n')
+        input('Press any key to continue: ')
         clear_terminal()
 
     def calculate_crypto(self, crypto_info):
