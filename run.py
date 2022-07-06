@@ -272,7 +272,7 @@ class crypto_portfolio(Bank):
         print(
             f'crypto: {Fore.GREEN}{Style.BRIGHT}{coin}{Fore.RESET} '
             f'amount: {Fore.GREEN}{Style.BRIGHT}{amount_of_crypto}\n')
-        time.sleep(2)
+        input('Press any key to continue: ')
         clear_terminal()
         return f'crypto: {coin} amount: {Fore.GREEN}{amount_of_crypto}\n'
 
@@ -301,13 +301,13 @@ class crypto_portfolio(Bank):
                 break
             else:
                 print(
-                    f'{Fore.RED}{Style.BRIGHT}-'
+                    f'{Fore.RED}{Style.BRIGHT}-----'
                     f'-------------------------------------------------------')
                 print(
                     f'Your balance is {balance}, do '
                     f'not invest more thank your balance')
                 print(
-                    f'{Fore.RED}{Style.BRIGHT}---'
+                    f'{Fore.RED}{Style.BRIGHT}-------'
                     f'-----------------------------------------------------\n')
 
         while True:
@@ -373,7 +373,7 @@ class crypto_portfolio(Bank):
                 print(
                     f'\nThe current cost of 1 {crypto_type} = $ '
                     f'{Fore.GREEN}{Style.BRIGHT}{price}{Fore.RESET}\n')
-                time.sleep(3)
+                input('Press any key to continue: ')
                 clear_terminal()
                 break
 
@@ -390,7 +390,7 @@ def get_balance(fname, lname):
     """
     while True:
         balance = validate_int(input(
-            f'{fname} {lname} please enter your inital balance: $'))
+            f'{fname} {lname} please enter your inital balance: $ '))
         if (balance):
             balance = round(balance, 2)
             print(
@@ -505,12 +505,10 @@ def crypto_menu():
 
         elif options_choice == 2:
             clear_terminal()
-            # get_crypto_list()
             user_one_portfolio.display_values()
 
         elif options_choice == 3:
             clear_terminal()
-            # get_crypto_list()
             a = (user_one_portfolio.amount_to_invest(user_one_balance))
             values = user_one_portfolio.calculate_crypto(a)
             investment_list.append(values)
