@@ -473,7 +473,9 @@ def main_menu():
             sys.exit()
         else:
             clear_terminal()
-            print("Please choose a number from 1-7.")
+            print(f"{Fore.RED}Please choose a number from 1-7.")
+            time.sleep(3)
+            clear_terminal()
 
 
 def crypto_menu():
