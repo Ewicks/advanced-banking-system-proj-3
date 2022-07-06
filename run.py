@@ -524,28 +524,32 @@ be used throughout throughout the program
 """
 welcome_screen()
 user_details_confirmation = ''
+
 while True:
+    print(
+        f'{Fore.BLUE}{Style.BRIGHT}First we need to get '
+        f'a few important details from you.\n')
+    fname = get_str('Enter your first name: ')
+    print('\n')
+    lname = get_str('Enter your last name: ')
+    print('\n')
+    age = get_int('Enter your age: ')
+    user_details_confirmation = input(
+        f"\nType {Fore.GREEN}{Style.BRIGHT}'yes'"
+        f"{Fore.RESET} to confirm your details\n"
+        f'First name: {fname}\n'
+        f'Last name {lname}\n'
+        f'Age: {age}\n').lower().strip()
+
     if user_details_confirmation == 'yes':
-        print("Thank you")
         user_one = User(fname, lname, age)
         clear_terminal()
         break
     else:
-        print(
-            f'{Fore.BLUE}{Style.BRIGHT}First we need to get '
-            f'a few important details from you.\n')
-        fname = get_str('Enter your first name: ')
-        print('\n')
-        lname = get_str('Enter your last name: ')
-        print('\n')
-        age = get_int('Enter your age: ')
-
-        user_details_confirmation = input(
-            f"\nType {Fore.GREEN}{Style.BRIGHT}'yes'"
-            f"{Fore.RESET} to confirm your details\n"
-            f'First name: {fname}\n'
-            f'Last name {lname}\n'
-            f'Age: {age}\n').lower().strip()
+        print(f'{Fore.RED}----------------')
+        print(f'{Fore.RED}Starting over...')
+        print(f'{Fore.RED}----------------\n')
+        time.sleep(1)
 
 
 user_one_balance = get_balance(user_one.fname, user_one.lname)
