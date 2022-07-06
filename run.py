@@ -99,7 +99,7 @@ def get_str(self):
 
 class User:
     """
-    User class initializes it's attrbiutes
+    User class initializes it's attributes
     """
     def __init__(self, fname, lname, age):
         self.fname = fname
@@ -121,7 +121,7 @@ class Bank(User):
     total_withdrawals = 0
 
     def __init__(self, fname, lname, age, balance):
-        super().__init__(fname, lname, age)  # Gets attributes from User class
+        super().__init__(fname, lname, age)
         self.balance = balance
 
     def balance_info(self):
@@ -208,7 +208,7 @@ crypto_List = []
 
 def get_crypto_list():
     """"
-    Accumulates all the cryptocrrency name's that the api can get,
+    Accumulates all the cryptocrrencies that the api can get,
     example - Bitcoin, and stores them all in a list
     """
 

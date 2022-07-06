@@ -8,6 +8,8 @@ I have created a banking system, which allows a user to withdraw or deposit mone
 
 ## Features
 
+- One of the features that's included is live coin data from coinmarketcap's website. I have pulled their top 5000 cryptocurrencies from there page, allowing the user to choose from a wide range of cryptocurrencies. I usede an API to fetch this data, so the user can get reliable information to make it the user expearience as realistic as possible.
+
 ### Landing Page
 
 - I have created a large and bold message using the figlet module in python for a unique style of font. 
@@ -100,7 +102,7 @@ and the amount if withdrawn from the current balance, ensuring the user can affo
 
 Click [here](TESTING.md) to access the testing page
 
-### Data Models
+## Data Models
 
 ## Class
 

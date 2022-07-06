@@ -22,7 +22,49 @@
 ![validating strings](documentation/images/validate-string.png)
 
 
-## Bugs
+## Bugs/Problem solving
+
+- One challenge I faced was passing two variables from one function into another in the same class.
+- To solve this is I returned the two variables in the below function I wanted to pass into calculate_crypto().
+- I combined both variables in a string with '/' inbetween, which will make it easy for me to sperate the variables once they have been passed into the calculate_crypto() function.
+- This allows me to have 1 parameter instead of two in calculate_crypto(), which reduces the amount of overall code.
+
+
+- part of amount_to_invest()
+```python
+if crypto_type in crypto_List:
+    return f'{amount}/{crypto_type}'
+    break
+```
+- when calling the above function I saved the return statement as 'a', which is then passed into the calculate_crypto() function.
+
+```python
+ a = (user_one_portfolio.amount_to_invest(user_one_balance))
+values = user_one_portfolio.calculate_crypto(a)
+```
+
+- From here I used the split method to seperate the varaibles into their original state.
+
+```python
+def calculate_crypto(self, crypto_info):
+        """
+        Calculates the price of which cryptocurrency the user wants
+        and returns the amount of crypto he has invested in
+        """
+        price = 0
+        amount = crypto_info.split('/')[0]
+        coin = crypto_info.split('/')[1]
+        for x in coins:
+            if x['symbol'].lower() == coin.lower():
+                price = float(x['quote']['USD']['price'])
+        amount_of_crypto = float(amount)/price
+        print(
+            f'crypto: {Fore.GREEN}{Style.BRIGHT}{coin}{Fore.RESET} '
+            f'amount: {Fore.GREEN}{Style.BRIGHT}{amount_of_crypto}\n')
+        time.sleep(2)
+        clear_terminal()
+        return f'crypto: {coin} amount: {Fore.GREEN}{amount_of_crypto}\n'
+```
 
 - I was getting the word 'None' printed out which was unnecessary as shown in the image below.
 
