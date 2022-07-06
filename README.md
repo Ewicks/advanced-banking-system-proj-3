@@ -187,6 +187,8 @@ The frontend terminal should now be connected and deployed to Heroku.
 
 - I used this video to help me fetch data using an api, because this was something I was not familiar with. [Api video](https://www.youtube.com/watch?v=ECJjjZ_iijc&t=1s)
 
+- I used a students repository for inspiration [link to repository](https://github.com/RiyadhKh4n/CoinFrog)
+
 - Mentor (Tim Nelson)
 
 - Tutor support

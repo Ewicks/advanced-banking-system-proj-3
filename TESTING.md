@@ -120,3 +120,11 @@ elif options_choice == 2:
             investment_list.append(values)
 
 ```
+
+- When the user is faced with the crypto menu, if the user entered '5'. There would be no error message which is shown below
+
+![options validation](documentation/images/num-validation1.png)
+
+- To fix this, I cleared the terminal momentarily so it would be obvious to the user what went wrong because the only text displayed is the error message as shown below.
+
+![options validation](documentation/images/num-validation-2.png)
