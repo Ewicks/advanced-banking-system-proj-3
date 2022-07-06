@@ -402,7 +402,7 @@ def get_balance(fname, lname):
                 f'-----------------------------------------')
             time.sleep(2)
             print(
-                f'You currently have £ {Fore.GREEN}{Style.BRIGHT}'
+                f'You currently have $ {Fore.GREEN}{Style.BRIGHT}'
                 f'{balance}{Fore.RESET} in your bank account\n')
             time.sleep(2)
             clear_terminal()
@@ -503,21 +503,26 @@ def crypto_menu():
             clear_terminal()
             user_one_portfolio.display_crypto_portfolio()
 
-        if options_choice == 2:
+        elif options_choice == 2:
             clear_terminal()
-            get_crypto_list()
+            # get_crypto_list()
             user_one_portfolio.display_values()
 
-        if options_choice == 3:
+        elif options_choice == 3:
             clear_terminal()
-            get_crypto_list()
+            # get_crypto_list()
             a = (user_one_portfolio.amount_to_invest(user_one_balance))
             values = user_one_portfolio.calculate_crypto(a)
             investment_list.append(values)
 
-        if options_choice == 4:
+        elif options_choice == 4:
             clear_terminal()
             main_menu()
+        else:
+            clear_terminal()
+            print(f"{Fore.RED}Please choose a number from 1-4.")
+            time.sleep(3)
+            clear_terminal()
 
 
 """
@@ -559,6 +564,7 @@ user_one_bank = Bank(
     user_one.fname, user_one.lname, user_one.age, user_one_balance)
 user_one_portfolio = crypto_portfolio(
     user_one.fname, user_one.lname, user_one.age, user_one_balance)
+get_crypto_list()
 
 
 main_menu()

@@ -11,7 +11,7 @@ url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 
 parameters = {
   'start': '1',
-  'limit': '5000',
+  'limit': '1000',
   'convert': 'USD'
 }
 headers = {

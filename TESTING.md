@@ -101,3 +101,22 @@ def get_crypto_list():
 - The list for then look the image below, which will become my cryptocurrency bank where the user can choose to invest in any one of these cryptocurrencies within the list 
 
 ![data symbols](documentation/images/data-symbols.png)
+
+- Each time the user would search for a cryptocurrency, the crypto_list would duplicate eachtime resulting in multiple of the same cryptocurrencies shown in the word completer below.
+
+![automation error](documentation/images/automation-error.png)
+
+- To fix this I commeneted out calling `get_crypto_list()` within the cryptocurrency functions shown in the image below. And placed near the bottom of my [run.py](run.py) page so the function is only run once.
+
+```python
+elif options_choice == 2:
+            clear_terminal()
+            user_one_portfolio.display_values()
+
+        elif options_choice == 3:
+            clear_terminal()
+            a = (user_one_portfolio.amount_to_invest(user_one_balance))
+            values = user_one_portfolio.calculate_crypto(a)
+            investment_list.append(values)
+
+```
