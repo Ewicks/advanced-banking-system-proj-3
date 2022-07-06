@@ -157,7 +157,7 @@ class Bank(User):
                 self.balance += dp
                 self.total_deposits += 1
                 print(
-                    f"\nYour balance is now: "
+                    f"\nYour balance is now: $ "
                     f"{Fore.GREEN}{Style.BRIGHT}"
                     f"{round(self.balance, 2)}{Fore.RESET}\n")
                 time.sleep(2)
@@ -390,7 +390,7 @@ def get_balance(fname, lname):
     """
     while True:
         balance = validate_int(input(
-            f'{fname} {lname} please enter your inital balance: £'))
+            f'{fname} {lname} please enter your inital balance: $'))
         if (balance):
             balance = round(balance, 2)
             print(

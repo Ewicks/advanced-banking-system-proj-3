@@ -67,7 +67,7 @@ def calculate_crypto(self, crypto_info):
 
 - I was getting the word 'None' printed out which was unnecessary as shown in the image below. 
 
-![bug](documentation/images/bug-None.png)
+![bug](documentation/images/bug-none.png)
 
 - To prevent the word 'none' from being printed out, I removed the print statement which was wrapped around the part where I called the function `print(user_one_portfolio.display_crypto_portfolio())`. Within the balance.info() function, there was a print statement already being returned so the wrapped print statement did not have anything to print so it printed none. Below is fixed code.
 
